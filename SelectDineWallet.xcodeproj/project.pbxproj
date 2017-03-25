@@ -17,6 +17,9 @@
 		27D0F6DE1E8548EA00DEFB50 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27D0F6DA1E8548E900DEFB50 /* FBSDKCoreKit.framework */; };
 		27D0F6DF1E8548EA00DEFB50 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27D0F6DB1E8548E900DEFB50 /* FBSDKLoginKit.framework */; };
 		27D0F6E01E8548EA00DEFB50 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27D0F6DC1E8548E900DEFB50 /* FBSDKShareKit.framework */; };
+		27D0F6E21E857F9100DEFB50 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D0F6E11E857F9100DEFB50 /* LoginViewController.swift */; };
+		27D0F6E61E86372F00DEFB50 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 27D0F6E51E86372F00DEFB50 /* GoogleService-Info.plist */; };
+		760798B8D85276A1D2023C92 /* Pods_SelectDineWallet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B881DA72BDAD01D497719741 /* Pods_SelectDineWallet.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +35,11 @@
 		27D0F6DA1E8548E900DEFB50 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		27D0F6DB1E8548E900DEFB50 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		27D0F6DC1E8548E900DEFB50 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
+		27D0F6E11E857F9100DEFB50 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		27D0F6E51E86372F00DEFB50 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		6F1F5244618DEBD0C8E71F10 /* Pods-SelectDineWallet.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SelectDineWallet.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SelectDineWallet/Pods-SelectDineWallet.debug.xcconfig"; sourceTree = "<group>"; };
+		75B92D4249E65320A6D5C6B1 /* Pods-SelectDineWallet.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SelectDineWallet.release.xcconfig"; path = "Pods/Target Support Files/Pods-SelectDineWallet/Pods-SelectDineWallet.release.xcconfig"; sourceTree = "<group>"; };
+		B881DA72BDAD01D497719741 /* Pods_SelectDineWallet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SelectDineWallet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,18 +51,29 @@
 				27D0F6DD1E8548E900DEFB50 /* Bolts.framework in Frameworks */,
 				27D0F6DE1E8548EA00DEFB50 /* FBSDKCoreKit.framework in Frameworks */,
 				27D0F6DF1E8548EA00DEFB50 /* FBSDKLoginKit.framework in Frameworks */,
+				760798B8D85276A1D2023C92 /* Pods_SelectDineWallet.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		272F861086AF468BE1DAF21D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				6F1F5244618DEBD0C8E71F10 /* Pods-SelectDineWallet.debug.xcconfig */,
+				75B92D4249E65320A6D5C6B1 /* Pods-SelectDineWallet.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		27D0F6B51E84E1AB00DEFB50 = {
 			isa = PBXGroup;
 			children = (
 				27D0F6D81E8548A300DEFB50 /* Frameworks */,
 				27D0F6C01E84E1AC00DEFB50 /* SelectDineWallet */,
 				27D0F6BF1E84E1AC00DEFB50 /* Products */,
+				272F861086AF468BE1DAF21D /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -71,7 +90,9 @@
 			children = (
 				27D0F6C11E84E1AC00DEFB50 /* AppDelegate.swift */,
 				27D0F6C31E84E1AC00DEFB50 /* ViewController.swift */,
+				27D0F6E11E857F9100DEFB50 /* LoginViewController.swift */,
 				27D0F6C51E84E1AC00DEFB50 /* Main.storyboard */,
+				27D0F6E51E86372F00DEFB50 /* GoogleService-Info.plist */,
 				27D0F6CB1E84E1AC00DEFB50 /* Assets.xcassets */,
 				27D0F6CD1E84E1AC00DEFB50 /* LaunchScreen.storyboard */,
 				27D0F6D01E84E1AC00DEFB50 /* Info.plist */,
@@ -87,6 +108,7 @@
 				27D0F6DA1E8548E900DEFB50 /* FBSDKCoreKit.framework */,
 				27D0F6DB1E8548E900DEFB50 /* FBSDKLoginKit.framework */,
 				27D0F6DC1E8548E900DEFB50 /* FBSDKShareKit.framework */,
+				B881DA72BDAD01D497719741 /* Pods_SelectDineWallet.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -98,9 +120,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 27D0F6D31E84E1AC00DEFB50 /* Build configuration list for PBXNativeTarget "SelectDineWallet" */;
 			buildPhases = (
+				40DFA0AFD8605C493253FB7B /* [CP] Check Pods Manifest.lock */,
 				27D0F6BA1E84E1AB00DEFB50 /* Sources */,
 				27D0F6BB1E84E1AB00DEFB50 /* Frameworks */,
 				27D0F6BC1E84E1AB00DEFB50 /* Resources */,
+				CE2B8AB6F2B090CBEDA30706 /* [CP] Embed Pods Frameworks */,
+				B49474DD7C324F5DFF29168A /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -150,6 +175,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				27D0F6E61E86372F00DEFB50 /* GoogleService-Info.plist in Resources */,
 				27D0F6CF1E84E1AC00DEFB50 /* LaunchScreen.storyboard in Resources */,
 				27D0F6CC1E84E1AC00DEFB50 /* Assets.xcassets in Resources */,
 				27D0F6C71E84E1AC00DEFB50 /* Main.storyboard in Resources */,
@@ -158,11 +184,60 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		40DFA0AFD8605C493253FB7B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		B49474DD7C324F5DFF29168A /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SelectDineWallet/Pods-SelectDineWallet-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CE2B8AB6F2B090CBEDA30706 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SelectDineWallet/Pods-SelectDineWallet-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		27D0F6BA1E84E1AB00DEFB50 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				27D0F6E21E857F9100DEFB50 /* LoginViewController.swift in Sources */,
 				27D0F6C41E84E1AC00DEFB50 /* ViewController.swift in Sources */,
 				27D0F6C21E84E1AC00DEFB50 /* AppDelegate.swift in Sources */,
 				27D0F6CA1E84E1AC00DEFB50 /* SelectDineWallet.xcdatamodeld in Sources */,
@@ -286,6 +361,7 @@
 		};
 		27D0F6D41E84E1AC00DEFB50 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6F1F5244618DEBD0C8E71F10 /* Pods-SelectDineWallet.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -297,12 +373,14 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.SelectDineWallet.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_REFLECTION_METADATA_LEVEL = all;
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
 		27D0F6D51E84E1AC00DEFB50 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 75B92D4249E65320A6D5C6B1 /* Pods-SelectDineWallet.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -314,6 +392,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.SelectDineWallet.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_REFLECTION_METADATA_LEVEL = all;
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
@@ -337,6 +416,7 @@
 				27D0F6D51E84E1AC00DEFB50 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

@@ -8,14 +8,29 @@
 
 import UIKit
 import FBSDKLoginKit
+import GoogleSignIn
 
-class ViewController: UIViewController, FBSDKLoginButtonDelegate {
+class ViewController: UIViewController, FBSDKLoginButtonDelegate, GIDSignInUIDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        GIDSignIn.sharedInstance().uiDelegate = self
+        fbButtonInit()
         
-        let loginButton = FBSDKLoginButton()
-        loginButton.center = self.view.center
+        let googleButton = GIDSignInButton(frame: CGRect(x: 125, y: 500, width: 100, height: 50))
+        view.addSubview(googleButton)
+    }
+    
+    @IBAction func Gsignin(_ sender: Any) {
+        GIDSignIn.sharedInstance().signIn()
+    }
+    
+  
+    
+    
+    func fbButtonInit(){
+        let loginButton = FBSDKLoginButton(frame: CGRect(x: 105, y: 400, width: 200, height: 40))
+        //loginButton.center = self.view.center
         view.addSubview(loginButton)
         loginButton.delegate = self
     }
@@ -33,6 +48,6 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
         print("Successfully logged out")
     }
     //end of methods for facebook login
-
+     
 }
 
