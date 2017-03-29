@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		27D0F6C21E84E1AC00DEFB50 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D0F6C11E84E1AC00DEFB50 /* AppDelegate.swift */; };
 		27D0F6C41E84E1AC00DEFB50 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D0F6C31E84E1AC00DEFB50 /* ViewController.swift */; };
-		27D0F6C71E84E1AC00DEFB50 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27D0F6C51E84E1AC00DEFB50 /* Main.storyboard */; };
 		27D0F6CA1E84E1AC00DEFB50 /* SelectDineWallet.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 27D0F6C81E84E1AC00DEFB50 /* SelectDineWallet.xcdatamodeld */; };
 		27D0F6CC1E84E1AC00DEFB50 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 27D0F6CB1E84E1AC00DEFB50 /* Assets.xcassets */; };
 		27D0F6CF1E84E1AC00DEFB50 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27D0F6CD1E84E1AC00DEFB50 /* LaunchScreen.storyboard */; };
@@ -19,6 +18,9 @@
 		27D0F6E01E8548EA00DEFB50 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27D0F6DC1E8548E900DEFB50 /* FBSDKShareKit.framework */; };
 		27D0F6E21E857F9100DEFB50 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D0F6E11E857F9100DEFB50 /* LoginViewController.swift */; };
 		27D0F6E61E86372F00DEFB50 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 27D0F6E51E86372F00DEFB50 /* GoogleService-Info.plist */; };
+		27D0F6E81E8788C700DEFB50 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D0F6E71E8788C700DEFB50 /* SignUpViewController.swift */; };
+		27D0F6EB1E8B691D00DEFB50 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D0F6EA1E8B691D00DEFB50 /* HomeViewController.swift */; };
+		27D0F6EE1E8B822700DEFB50 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27D0F6EC1E8B822700DEFB50 /* Main.storyboard */; };
 		760798B8D85276A1D2023C92 /* Pods_SelectDineWallet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B881DA72BDAD01D497719741 /* Pods_SelectDineWallet.framework */; };
 /* End PBXBuildFile section */
 
@@ -26,7 +28,6 @@
 		27D0F6BE1E84E1AC00DEFB50 /* SelectDineWallet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SelectDineWallet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		27D0F6C11E84E1AC00DEFB50 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		27D0F6C31E84E1AC00DEFB50 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		27D0F6C61E84E1AC00DEFB50 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		27D0F6C91E84E1AC00DEFB50 /* SelectDineWallet.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SelectDineWallet.xcdatamodel; sourceTree = "<group>"; };
 		27D0F6CB1E84E1AC00DEFB50 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		27D0F6CE1E84E1AC00DEFB50 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -37,6 +38,9 @@
 		27D0F6DC1E8548E900DEFB50 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
 		27D0F6E11E857F9100DEFB50 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		27D0F6E51E86372F00DEFB50 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		27D0F6E71E8788C700DEFB50 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		27D0F6EA1E8B691D00DEFB50 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		27D0F6ED1E8B822700DEFB50 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		6F1F5244618DEBD0C8E71F10 /* Pods-SelectDineWallet.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SelectDineWallet.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SelectDineWallet/Pods-SelectDineWallet.debug.xcconfig"; sourceTree = "<group>"; };
 		75B92D4249E65320A6D5C6B1 /* Pods-SelectDineWallet.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SelectDineWallet.release.xcconfig"; path = "Pods/Target Support Files/Pods-SelectDineWallet/Pods-SelectDineWallet.release.xcconfig"; sourceTree = "<group>"; };
 		B881DA72BDAD01D497719741 /* Pods_SelectDineWallet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SelectDineWallet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -91,12 +95,14 @@
 				27D0F6C11E84E1AC00DEFB50 /* AppDelegate.swift */,
 				27D0F6C31E84E1AC00DEFB50 /* ViewController.swift */,
 				27D0F6E11E857F9100DEFB50 /* LoginViewController.swift */,
-				27D0F6C51E84E1AC00DEFB50 /* Main.storyboard */,
+				27D0F6EC1E8B822700DEFB50 /* Main.storyboard */,
 				27D0F6E51E86372F00DEFB50 /* GoogleService-Info.plist */,
 				27D0F6CB1E84E1AC00DEFB50 /* Assets.xcassets */,
 				27D0F6CD1E84E1AC00DEFB50 /* LaunchScreen.storyboard */,
 				27D0F6D01E84E1AC00DEFB50 /* Info.plist */,
 				27D0F6C81E84E1AC00DEFB50 /* SelectDineWallet.xcdatamodeld */,
+				27D0F6E71E8788C700DEFB50 /* SignUpViewController.swift */,
+				27D0F6EA1E8B691D00DEFB50 /* HomeViewController.swift */,
 			);
 			path = SelectDineWallet;
 			sourceTree = "<group>";
@@ -178,7 +184,7 @@
 				27D0F6E61E86372F00DEFB50 /* GoogleService-Info.plist in Resources */,
 				27D0F6CF1E84E1AC00DEFB50 /* LaunchScreen.storyboard in Resources */,
 				27D0F6CC1E84E1AC00DEFB50 /* Assets.xcassets in Resources */,
-				27D0F6C71E84E1AC00DEFB50 /* Main.storyboard in Resources */,
+				27D0F6EE1E8B822700DEFB50 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -241,26 +247,28 @@
 				27D0F6C41E84E1AC00DEFB50 /* ViewController.swift in Sources */,
 				27D0F6C21E84E1AC00DEFB50 /* AppDelegate.swift in Sources */,
 				27D0F6CA1E84E1AC00DEFB50 /* SelectDineWallet.xcdatamodeld in Sources */,
+				27D0F6E81E8788C700DEFB50 /* SignUpViewController.swift in Sources */,
+				27D0F6EB1E8B691D00DEFB50 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		27D0F6C51E84E1AC00DEFB50 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				27D0F6C61E84E1AC00DEFB50 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		27D0F6CD1E84E1AC00DEFB50 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				27D0F6CE1E84E1AC00DEFB50 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		27D0F6EC1E8B822700DEFB50 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				27D0F6ED1E8B822700DEFB50 /* Base */,
+			);
+			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

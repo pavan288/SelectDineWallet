@@ -23,16 +23,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         var configureError: NSError?
         GGLContext.sharedInstance().configureWithError(&configureError)
         assert(configureError == nil, "Error configuring Google services: \(configureError)")
-        
+    
         
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
         return true
     }
     
-    func application(application: UIApplication,
-                     openURL url: NSURL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
-        return GIDSignIn.sharedInstance().handle(url as URL!, sourceApplication: options[UIApplicationOpenURLOptionsKey.sourceApplication] as? String, annotation: options [UIApplicationOpenURLOptionsKey.annotation])
+    func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
+        let FBDidHandle = FBSDKApplicationDelegate.sharedInstance().application( app, open: url, sourceApplication: options[UIApplicationOpenURLOptionsKey.sourceApplication] as! String!, annotation: options[UIApplicationOpenURLOptionsKey.annotation])
+        
+        let GoogleDidHandle = GIDSignIn.sharedInstance().handle(url as URL!, sourceApplication: options[UIApplicationOpenURLOptionsKey.sourceApplication] as? String, annotation: options [UIApplicationOpenURLOptionsKey.annotation])
+        
+        return FBDidHandle || GoogleDidHandle
     }
+    
     func signIn(signIn: GIDSignIn!, didSignInForUser user: GIDGoogleUser!,
                 withError error: NSError!) {
         if (error == nil) {
@@ -47,9 +51,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // ...
     }
     
-    func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
-        return FBSDKApplicationDelegate.sharedInstance().application( app, open: url, sourceApplication: options[UIApplicationOpenURLOptionsKey.sourceApplication] as! String!, annotation: options[UIApplicationOpenURLOptionsKey.annotation])
-    }
+   
 
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

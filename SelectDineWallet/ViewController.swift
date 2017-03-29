@@ -15,6 +15,7 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate, GIDSignInUIDel
     override func viewDidLoad() {
         super.viewDidLoad()
         GIDSignIn.sharedInstance().uiDelegate = self
+        GIDSignIn.sharedInstance().signInSilently()
         fbButtonInit()
         
         let googleButton = GIDSignInButton(frame: CGRect(x: 125, y: 500, width: 100, height: 50))
@@ -42,6 +43,11 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate, GIDSignInUIDel
             return
         }
         print("Successfully logged in")
+        let alert = UIAlertController(title: "Successful!", message: "Login successfull", preferredStyle: .actionSheet)
+        alert.addAction(UIAlertAction(title: "Ok", style: .default) { action in
+            // perhaps use action.title here
+        })
+        self.present(alert, animated: true)
     }
    
     func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
