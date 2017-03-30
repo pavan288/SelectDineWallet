@@ -52,7 +52,11 @@ class LoginViewController: UIViewController {
     @IBAction func loginPressed(_ sender: Any) {
         let status = parseJSON()
         if(status==2006){
-            self.performSegue(withIdentifier: "Login", sender: self)
+            let appDelegate = UIApplication.shared.delegate! as! AppDelegate
+            
+            let initialViewController = self.storyboard!.instantiateViewController(withIdentifier: "Home")
+            appDelegate.window?.rootViewController = initialViewController
+            appDelegate.window?.makeKeyAndVisible()
         }
     }
 
