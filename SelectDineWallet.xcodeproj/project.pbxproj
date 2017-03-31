@@ -21,6 +21,9 @@
 		27D0F6E81E8788C700DEFB50 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D0F6E71E8788C700DEFB50 /* SignUpViewController.swift */; };
 		27D0F6EB1E8B691D00DEFB50 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D0F6EA1E8B691D00DEFB50 /* HomeViewController.swift */; };
 		27D0F6EE1E8B822700DEFB50 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27D0F6EC1E8B822700DEFB50 /* Main.storyboard */; };
+		27D0F6F01E8E2F3500DEFB50 /* HomeScroller.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27D0F6EF1E8E2F3400DEFB50 /* HomeScroller.xib */; };
+		27D0F6F21E8E330C00DEFB50 /* HomeScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D0F6F11E8E330C00DEFB50 /* HomeScrollView.swift */; };
+		27D0F6F51E8E357900DEFB50 /* HomeTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D0F6F41E8E357900DEFB50 /* HomeTabView.swift */; };
 		760798B8D85276A1D2023C92 /* Pods_SelectDineWallet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B881DA72BDAD01D497719741 /* Pods_SelectDineWallet.framework */; };
 /* End PBXBuildFile section */
 
@@ -41,6 +44,9 @@
 		27D0F6E71E8788C700DEFB50 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		27D0F6EA1E8B691D00DEFB50 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		27D0F6ED1E8B822700DEFB50 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		27D0F6EF1E8E2F3400DEFB50 /* HomeScroller.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeScroller.xib; sourceTree = "<group>"; };
+		27D0F6F11E8E330C00DEFB50 /* HomeScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeScrollView.swift; sourceTree = "<group>"; };
+		27D0F6F41E8E357900DEFB50 /* HomeTabView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTabView.swift; sourceTree = "<group>"; };
 		6F1F5244618DEBD0C8E71F10 /* Pods-SelectDineWallet.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SelectDineWallet.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SelectDineWallet/Pods-SelectDineWallet.debug.xcconfig"; sourceTree = "<group>"; };
 		75B92D4249E65320A6D5C6B1 /* Pods-SelectDineWallet.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SelectDineWallet.release.xcconfig"; path = "Pods/Target Support Files/Pods-SelectDineWallet/Pods-SelectDineWallet.release.xcconfig"; sourceTree = "<group>"; };
 		B881DA72BDAD01D497719741 /* Pods_SelectDineWallet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SelectDineWallet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -92,6 +98,7 @@
 		27D0F6C01E84E1AC00DEFB50 /* SelectDineWallet */ = {
 			isa = PBXGroup;
 			children = (
+				27D0F6F31E8E355E00DEFB50 /* Tabbed SCreens */,
 				27D0F6C11E84E1AC00DEFB50 /* AppDelegate.swift */,
 				27D0F6C31E84E1AC00DEFB50 /* ViewController.swift */,
 				27D0F6E11E857F9100DEFB50 /* LoginViewController.swift */,
@@ -117,6 +124,16 @@
 				B881DA72BDAD01D497719741 /* Pods_SelectDineWallet.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		27D0F6F31E8E355E00DEFB50 /* Tabbed SCreens */ = {
+			isa = PBXGroup;
+			children = (
+				27D0F6EF1E8E2F3400DEFB50 /* HomeScroller.xib */,
+				27D0F6F11E8E330C00DEFB50 /* HomeScrollView.swift */,
+				27D0F6F41E8E357900DEFB50 /* HomeTabView.swift */,
+			);
+			name = "Tabbed SCreens";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -185,6 +202,7 @@
 				27D0F6CF1E84E1AC00DEFB50 /* LaunchScreen.storyboard in Resources */,
 				27D0F6CC1E84E1AC00DEFB50 /* Assets.xcassets in Resources */,
 				27D0F6EE1E8B822700DEFB50 /* Main.storyboard in Resources */,
+				27D0F6F01E8E2F3500DEFB50 /* HomeScroller.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -247,8 +265,10 @@
 				27D0F6C41E84E1AC00DEFB50 /* ViewController.swift in Sources */,
 				27D0F6C21E84E1AC00DEFB50 /* AppDelegate.swift in Sources */,
 				27D0F6CA1E84E1AC00DEFB50 /* SelectDineWallet.xcdatamodeld in Sources */,
+				27D0F6F21E8E330C00DEFB50 /* HomeScrollView.swift in Sources */,
 				27D0F6E81E8788C700DEFB50 /* SignUpViewController.swift in Sources */,
 				27D0F6EB1E8B691D00DEFB50 /* HomeViewController.swift in Sources */,
+				27D0F6F51E8E357900DEFB50 /* HomeTabView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

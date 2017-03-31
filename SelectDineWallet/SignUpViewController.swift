@@ -36,8 +36,6 @@ class SignUpViewController: UIViewController {
         let urlpath = "http://35.154.46.78:1337/user/signup?name=\(name.text!)&email=\(email.text!)&password=\(password.text!)&mobileNo=\(mobile!)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
         let url = URL(string: urlpath!)
         
-        //print(url)
-//            let url = URL(string: "http: //35.154.46.78:1337/user/signup?name=abc&email=abc.xyz.com&password=123456&mobileNo=9988776655")
             let jsonData = try? Data(contentsOf: url! as URL, options: [])
             let readableJSON = JSON(data: jsonData! as Data, options: JSONSerialization.ReadingOptions.mutableContainers, error: nil)
         
