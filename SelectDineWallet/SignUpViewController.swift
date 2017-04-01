@@ -16,6 +16,7 @@ class SignUpViewController: UIViewController {
     @IBOutlet var password: UITextField!
     @IBOutlet var phone: UITextField!
     
+    var userID: String! = nil
     
     
     override func viewDidLoad() {
@@ -41,6 +42,7 @@ class SignUpViewController: UIViewController {
         
         let message = readableJSON["message"].string! as String
         let status = readableJSON["status"].int! as Int
+        userID = readableJSON["userid"].string! as String
         print("\(status):\(message)")
         
         let alert = UIAlertController(title: "Sign Up", message: "\(message)", preferredStyle: .actionSheet)

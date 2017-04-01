@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		274EF4B41E8F88D40015FED2 /* AcceptTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274EF4B31E8F88D40015FED2 /* AcceptTabViewController.swift */; };
 		27D0F6C21E84E1AC00DEFB50 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D0F6C11E84E1AC00DEFB50 /* AppDelegate.swift */; };
 		27D0F6C41E84E1AC00DEFB50 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D0F6C31E84E1AC00DEFB50 /* ViewController.swift */; };
 		27D0F6CA1E84E1AC00DEFB50 /* SelectDineWallet.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 27D0F6C81E84E1AC00DEFB50 /* SelectDineWallet.xcdatamodeld */; };
@@ -28,6 +29,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		274EF4B31E8F88D40015FED2 /* AcceptTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AcceptTabViewController.swift; sourceTree = "<group>"; };
 		27D0F6BE1E84E1AC00DEFB50 /* SelectDineWallet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SelectDineWallet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		27D0F6C11E84E1AC00DEFB50 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		27D0F6C31E84E1AC00DEFB50 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -75,6 +77,24 @@
 				75B92D4249E65320A6D5C6B1 /* Pods-SelectDineWallet.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		274EF4B11E8F88B40015FED2 /* HomeTab */ = {
+			isa = PBXGroup;
+			children = (
+				27D0F6EF1E8E2F3400DEFB50 /* HomeScroller.xib */,
+				27D0F6F11E8E330C00DEFB50 /* HomeScrollView.swift */,
+				27D0F6F41E8E357900DEFB50 /* HomeTabView.swift */,
+			);
+			name = HomeTab;
+			sourceTree = "<group>";
+		};
+		274EF4B21E8F88BC0015FED2 /* AcceptTab */ = {
+			isa = PBXGroup;
+			children = (
+				274EF4B31E8F88D40015FED2 /* AcceptTabViewController.swift */,
+			);
+			name = AcceptTab;
 			sourceTree = "<group>";
 		};
 		27D0F6B51E84E1AB00DEFB50 = {
@@ -129,9 +149,8 @@
 		27D0F6F31E8E355E00DEFB50 /* Tabbed SCreens */ = {
 			isa = PBXGroup;
 			children = (
-				27D0F6EF1E8E2F3400DEFB50 /* HomeScroller.xib */,
-				27D0F6F11E8E330C00DEFB50 /* HomeScrollView.swift */,
-				27D0F6F41E8E357900DEFB50 /* HomeTabView.swift */,
+				274EF4B21E8F88BC0015FED2 /* AcceptTab */,
+				274EF4B11E8F88B40015FED2 /* HomeTab */,
 			);
 			name = "Tabbed SCreens";
 			sourceTree = "<group>";
@@ -264,6 +283,7 @@
 				27D0F6E21E857F9100DEFB50 /* LoginViewController.swift in Sources */,
 				27D0F6C41E84E1AC00DEFB50 /* ViewController.swift in Sources */,
 				27D0F6C21E84E1AC00DEFB50 /* AppDelegate.swift in Sources */,
+				274EF4B41E8F88D40015FED2 /* AcceptTabViewController.swift in Sources */,
 				27D0F6CA1E84E1AC00DEFB50 /* SelectDineWallet.xcdatamodeld in Sources */,
 				27D0F6F21E8E330C00DEFB50 /* HomeScrollView.swift in Sources */,
 				27D0F6E81E8788C700DEFB50 /* SignUpViewController.swift in Sources */,

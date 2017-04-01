@@ -325,7 +325,7 @@
         <!--Accept-->
         <scene sceneID="0Om-qU-rH7">
             <objects>
-                <viewController id="rxh-BV-del" sceneMemberID="viewController">
+                <viewController id="rxh-BV-del" customClass="AcceptTabViewController" customModule="SelectDineWallet" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="wyA-m9-NPR"/>
                         <viewControllerLayoutGuide type="bottom" id="gQ1-x9-Drc"/>
@@ -392,10 +392,11 @@
                                 <rect key="frame" x="8" y="140" width="359" height="404"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="qrsample" translatesAutoresizingMaskIntoConstraints="NO" id="SgM-cA-Imd">
-                                        <rect key="frame" x="35" y="58" width="289" height="289"/>
+                                    <webView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QKe-TS-WHN">
+                                        <rect key="frame" x="92" y="108" width="250" height="250"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
+                                        <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </webView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
@@ -403,6 +404,9 @@
                         <color key="backgroundColor" red="0.94874948260000003" green="0.94517356159999999" blue="0.94494754079999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Accept" image="Accept-d" id="IUK-05-5Gt"/>
+                    <connections>
+                        <outlet property="qrcode" destination="QKe-TS-WHN" id="MBX-Uw-iWt"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8yd-YY-zFu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -949,7 +953,6 @@
         <image name="SelectDine-Wallet" width="8192" height="3050"/>
         <image name="Transfer-to-bank" width="40" height="38"/>
         <image name="Wallet-d" width="28" height="19"/>
-        <image name="qrsample" width="3000" height="3000"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="NgZ-rc-CtR"/>

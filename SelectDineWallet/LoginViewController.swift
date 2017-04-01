@@ -16,6 +16,10 @@ class LoginViewController: UIViewController {
     @IBOutlet var password: UITextField!
     @IBOutlet var username: UITextField!
     
+    var userID:String! = nil
+    
+    let prefs = UserDefaults.standard
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -34,6 +38,8 @@ class LoginViewController: UIViewController {
         
         let message = readableJSON["message"].string! as String
         let status = readableJSON["status"].int! as Int
+        userID = readableJSON["userid"].string! as String
+        prefs.set(userID, forKey: "userID")
         print("\(status):\(message)")
         let alert = UIAlertController(title: "Login", message: "\(message)", preferredStyle: .actionSheet)
         alert.addAction(UIAlertAction(title: "Ok", style: .default) { action in
