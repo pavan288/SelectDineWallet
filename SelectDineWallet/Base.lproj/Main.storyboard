@@ -392,11 +392,10 @@
                                 <rect key="frame" x="8" y="140" width="359" height="404"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <webView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QKe-TS-WHN">
-                                        <rect key="frame" x="92" y="108" width="250" height="250"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bVC-3z-12i">
+                                        <rect key="frame" x="0.0" y="23" width="359" height="359"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </webView>
+                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
@@ -405,7 +404,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Accept" image="Accept-d" id="IUK-05-5Gt"/>
                     <connections>
-                        <outlet property="qrcode" destination="QKe-TS-WHN" id="MBX-Uw-iWt"/>
+                        <outlet property="testImage" destination="bVC-3z-12i" id="Qer-HG-0jG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8yd-YY-zFu" userLabel="First Responder" sceneMemberID="firstResponder"/>

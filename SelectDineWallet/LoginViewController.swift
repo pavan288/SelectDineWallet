@@ -38,19 +38,18 @@ class LoginViewController: UIViewController {
         
         let message = readableJSON["message"].string! as String
         let status = readableJSON["status"].int! as Int
+        let email = readableJSON["email"].string! as String
+        let phone = readableJSON["message"].string! as String
         userID = readableJSON["userid"].string! as String
         prefs.set(userID, forKey: "userID")
+        prefs.set(email, forKey: "email")
+        prefs.set(phone, forKey: "phone")
         print("\(status):\(message)")
         let alert = UIAlertController(title: "Login", message: "\(message)", preferredStyle: .actionSheet)
         alert.addAction(UIAlertAction(title: "Ok", style: .default) { action in
             // perhaps use action.title here
         })
-     /*   self.present(alert, animated: true)
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
-            // your code here
-            alert.dismiss(animated: true, completion: nil)
-        }*/
-        
+
         return status
     }
 

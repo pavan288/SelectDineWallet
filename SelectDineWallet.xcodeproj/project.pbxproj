@@ -30,6 +30,7 @@
 
 /* Begin PBXFileReference section */
 		274EF4B31E8F88D40015FED2 /* AcceptTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AcceptTabViewController.swift; sourceTree = "<group>"; };
+		274EF4B61E8FC6520015FED2 /* bridging-header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "bridging-header.h"; sourceTree = "<group>"; };
 		27D0F6BE1E84E1AC00DEFB50 /* SelectDineWallet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SelectDineWallet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		27D0F6C11E84E1AC00DEFB50 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		27D0F6C31E84E1AC00DEFB50 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -100,6 +101,7 @@
 		27D0F6B51E84E1AB00DEFB50 = {
 			isa = PBXGroup;
 			children = (
+				274EF4B61E8FC6520015FED2 /* bridging-header.h */,
 				27D0F6D81E8548A300DEFB50 /* Frameworks */,
 				27D0F6C01E84E1AC00DEFB50 /* SelectDineWallet */,
 				27D0F6BF1E84E1AC00DEFB50 /* Products */,

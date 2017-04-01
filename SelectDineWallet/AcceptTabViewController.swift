@@ -10,15 +10,14 @@ import UIKit
 import SwiftyJSON
 
 class AcceptTabViewController: UIViewController,UIWebViewDelegate {
-
-    @IBOutlet var qrcode: UIWebView!
     
     let prefs = UserDefaults.standard
+    @IBOutlet var testImage: UIImageView!
     
     var qrdata:String! = nil
     override func viewDidLoad() {
         super.viewDidLoad()
-        qrcode.delegate = self
+        
         // Do any additional setup after loading the view.
         parseJSON()
     }
@@ -30,19 +29,33 @@ class AcceptTabViewController: UIViewController,UIWebViewDelegate {
     
     func parseJSON(){
         let uid = prefs.string(forKey: "userID")
-        let urlpath = "http://35.154.46.78:1337/qrcode/generateqrcode?id=\(uid!)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
+        if prefs.string(forKey: "qrcodestirng") == nil{
+        let urlpath = "http://35.154.46.78:1337/qrcode/generateqrcodeforios?id=\(uid!)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
         let url = URL(string: urlpath!)
         
         let jsonData = try? Data(contentsOf: url! as URL, options: [])
         let readableJSON = JSON(data: jsonData! as Data, options: JSONSerialization.ReadingOptions.mutableContainers, error: nil)
         
         qrdata = readableJSON["code"].string! as String
-        
-        qrcode.loadHTMLString(qrdata, baseURL: nil)
+        prefs.set(qrdata, forKey: "qrCodeString")
+        //print(qrdata!)
+        }
+        let newurl = URL(string : qrdata)!
+        // It Will turn Into Data
+        let imageData : NSData = NSData.init(contentsOf: newurl as URL)!
+        // Data Will Encode into Base64
+        let str64 = imageData.base64EncodedData(options: .lineLength64Characters)
+        // Now Base64 will Decode Here
+        let data: NSData = NSData(base64Encoded: str64 , options: .ignoreUnknownCharacters)!
+        // turn  Decoded String into Data
+        let dataImage = UIImage(data: data as Data)
+        // pass the data image to image View.:)
+        testImage.image = dataImage
         
        
     }
-    
-
-    
 }
+
+
+
+

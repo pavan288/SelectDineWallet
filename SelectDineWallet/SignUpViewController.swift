@@ -18,7 +18,7 @@ class SignUpViewController: UIViewController {
     
     var userID: String! = nil
     
-    
+    let prefs = UserDefaults.standard
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -42,7 +42,12 @@ class SignUpViewController: UIViewController {
         
         let message = readableJSON["message"].string! as String
         let status = readableJSON["status"].int! as Int
+        let emailID = readableJSON["email"].string! as String
+        let mobileNo = readableJSON["mobileNo"]
         userID = readableJSON["userid"].string! as String
+        prefs.set(userID, forKey: "userID")
+        prefs.set(email, forKey: "email")
+        prefs.set(mobileNo, forKey: "phone")
         print("\(status):\(message)")
         
         let alert = UIAlertController(title: "Sign Up", message: "\(message)", preferredStyle: .actionSheet)
