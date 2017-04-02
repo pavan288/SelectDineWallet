@@ -266,9 +266,12 @@
                                     <action selector="SignUpPressed:" destination="PgT-Yq-PZm" eventType="touchUpInside" id="QIL-q1-5Pk"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ffq-bT-3Zg">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ffq-bT-3Zg">
                                 <rect key="frame" x="313" y="445" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="X36-jt-gKa"/>
+                                    <constraint firstAttribute="width" constant="46" id="z2v-S9-9W4"/>
+                                </constraints>
                                 <state key="normal" title="Verify">
                                     <color key="titleColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                 </state>
@@ -284,15 +287,18 @@
                             <constraint firstItem="gpq-pT-lsJ" firstAttribute="leading" secondItem="W9M-Ng-gzb" secondAttribute="leadingMargin" constant="-6" id="56c-U2-PU4"/>
                             <constraint firstItem="VcS-e9-CxH" firstAttribute="top" secondItem="WZF-uo-KED" secondAttribute="bottom" constant="8" id="6Q0-j6-wkl"/>
                             <constraint firstItem="p6H-be-g7a" firstAttribute="top" secondItem="GYE-Zh-JDh" secondAttribute="bottom" constant="28" id="8KM-oJ-I5V"/>
+                            <constraint firstItem="ffq-bT-3Zg" firstAttribute="trailing" secondItem="W9M-Ng-gzb" secondAttribute="trailingMargin" id="9Kq-H4-tIh"/>
                             <constraint firstItem="vwq-Di-sbi" firstAttribute="top" secondItem="gpq-pT-lsJ" secondAttribute="bottom" constant="43" id="C4a-UY-ENi"/>
                             <constraint firstAttribute="leadingMargin" secondItem="ZsF-fH-AIZ" secondAttribute="leading" id="CJQ-Ft-nZp"/>
                             <constraint firstItem="u08-mV-MqY" firstAttribute="leading" secondItem="W9M-Ng-gzb" secondAttribute="leadingMargin" constant="-6" id="Et6-D3-1gN"/>
                             <constraint firstItem="eKu-Gf-fRj" firstAttribute="leading" secondItem="W9M-Ng-gzb" secondAttribute="leadingMargin" constant="54" id="Ezj-ro-SiR"/>
                             <constraint firstAttribute="trailingMargin" secondItem="kgn-Iy-aJF" secondAttribute="trailing" constant="-6" id="Ita-SJ-nDF"/>
+                            <constraint firstItem="vwq-Di-sbi" firstAttribute="top" secondItem="ffq-bT-3Zg" secondAttribute="bottom" constant="43" id="JNY-MC-Qhf"/>
                             <constraint firstAttribute="trailingMargin" secondItem="u08-mV-MqY" secondAttribute="trailing" constant="-6" id="KaW-Dw-7A5"/>
                             <constraint firstItem="4w5-aQ-hSw" firstAttribute="top" secondItem="VcS-e9-CxH" secondAttribute="bottom" constant="17" id="Mzi-Ty-oKF"/>
                             <constraint firstItem="CXA-vf-b9o" firstAttribute="top" secondItem="u08-mV-MqY" secondAttribute="bottom" constant="8" id="O52-6q-vkx"/>
                             <constraint firstAttribute="leadingMargin" secondItem="CXA-vf-b9o" secondAttribute="leading" id="UpQ-iu-40I"/>
+                            <constraint firstItem="ffq-bT-3Zg" firstAttribute="leading" secondItem="W9M-Ng-gzb" secondAttribute="leadingMargin" constant="297" id="WXc-2D-lfd"/>
                             <constraint firstItem="WZF-uo-KED" firstAttribute="top" secondItem="GYE-Zh-JDh" secondAttribute="bottom" constant="188" id="Zef-EA-0lp"/>
                             <constraint firstAttribute="trailingMargin" secondItem="gpq-pT-lsJ" secondAttribute="trailing" constant="-6" id="dF0-qB-3SE"/>
                             <constraint firstAttribute="trailingMargin" secondItem="p6H-be-g7a" secondAttribute="trailing" constant="54" id="dXx-e6-1P3"/>
@@ -316,6 +322,8 @@
                         <outlet property="name" destination="VcS-e9-CxH" id="GZ0-Vn-xla"/>
                         <outlet property="password" destination="kgn-Iy-aJF" id="824-LW-Tpp"/>
                         <outlet property="phone" destination="gpq-pT-lsJ" id="dV6-zS-Cpj"/>
+                        <outlet property="signUpButton" destination="vwq-Di-sbi" id="MRe-M1-XeI"/>
+                        <outlet property="verifyButton" destination="ffq-bT-3Zg" id="yGM-ba-OJA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ecv-sv-HmA" userLabel="First Responder" sceneMemberID="firstResponder"/>
