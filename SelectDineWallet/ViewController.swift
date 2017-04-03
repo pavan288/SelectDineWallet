@@ -23,17 +23,13 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate, GIDSignInUIDel
         let googleButton = GIDSignInButton(frame: CGRect(x: 125, y: 500, width: 100, height: 50))
         view.addSubview(googleButton)
         
-        /*if (prefs.value(forKey: "userID") != nil){
+        if (prefs.value(forKey: "userID") != nil){
             let appDelegate = UIApplication.shared.delegate! as! AppDelegate
             let initialViewController = self.storyboard!.instantiateViewController(withIdentifier: "Home")
             appDelegate.window?.rootViewController = initialViewController
             appDelegate.window?.makeKeyAndVisible()
-        }*/
+        }
         
-    }
-    
-    @IBAction func Gsignin(_ sender: Any) {
-        GIDSignIn.sharedInstance().signIn()
     }
     
   

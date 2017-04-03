@@ -16,7 +16,7 @@ class LoginViewController: UIViewController {
     @IBOutlet var password: UITextField!
     @IBOutlet var username: UITextField!
     
-    var userID:String! = nil
+    
     
     let prefs = UserDefaults.standard
     
@@ -29,28 +29,31 @@ class LoginViewController: UIViewController {
     }
     
     func parseJSON() -> Int{
-        
+        var status:Int! = 0
         let urlpath = "http://35.154.46.78:1337/user/login?email=\(username.text!)&password=\(password.text!)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
         let url = URL(string: urlpath!)
 
-        let jsonData = try? Data(contentsOf: url! as URL, options: [])
-        let readableJSON = JSON(data: jsonData! as Data, options: JSONSerialization.ReadingOptions.mutableContainers, error: nil)
+        if let jsonData = try? Data(contentsOf: url! as URL, options: []){
+        let readableJSON = JSON(data: jsonData as Data, options: JSONSerialization.ReadingOptions.mutableContainers, error: nil)
         
         let message = readableJSON["message"].string! as String
-        let status = readableJSON["status"].int! as Int
+        status = readableJSON["status"].int! as Int
         let email = readableJSON["email"].string! as String
-        let phone = readableJSON["message"].string! as String
-        userID = readableJSON["userid"].string! as String
+        let phone = readableJSON["mobile"].int! as Int
+        let userID = readableJSON["userid"].string! as String
+        let name = readableJSON["user"]["name"].string! as String
         prefs.set(userID, forKey: "userID")
         prefs.set(email, forKey: "email")
         prefs.set(phone, forKey: "phone")
+        prefs.set(name, forKey: "name")
         print("\(status):\(message)")
         let alert = UIAlertController(title: "Login", message: "\(message)", preferredStyle: .actionSheet)
         alert.addAction(UIAlertAction(title: "Ok", style: .default) { action in
             // perhaps use action.title here
         })
-
+    }
         return status
+        
     }
 
     
@@ -62,6 +65,13 @@ class LoginViewController: UIViewController {
             let initialViewController = self.storyboard!.instantiateViewController(withIdentifier: "Home")
             appDelegate.window?.rootViewController = initialViewController
             appDelegate.window?.makeKeyAndVisible()
+        }
+        else{
+         let alert = UIAlertController(title: "No connection!", message: "Please check your connection", preferredStyle: .actionSheet)
+            alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action) in
+                
+            }))
+            self.present(alert, animated: true)
         }
     }
 
