@@ -19,6 +19,8 @@ class HomeTabView: UIViewController,UIScrollViewDelegate {
     
     var featureArray = [Dictionary<String,String>]()
     
+    let prefs = UserDefaults.standard
+    
     override func viewDidLoad() {
         featureArray = [feature1,feature2,feature3,feature4]
         
@@ -45,6 +47,22 @@ class HomeTabView: UIViewController,UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let page = scrollView.contentOffset.x / scrollView.frame.size.width
         featurePageControl.currentPage = Int(page)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "HomeBank" {
+            let destinationVC = segue.destination as! PayViewController
+            let phoneNumber = prefs.value(forKey: "phone")
+            destinationVC.defaultNumber = phoneNumber as! Int
+            destinationVC.phoneFlag = 1
+            
+        }else if segue.identifier == "HomeCredits"{
+            let destinationVC = segue.destination as! PayViewController
+            let phoneNumber = prefs.value(forKey: "phone")
+            destinationVC.defaultNumber = phoneNumber as! Int!
+            destinationVC.phoneFlag = 1
+            
+        }
     }
 
 }

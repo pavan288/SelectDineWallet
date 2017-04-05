@@ -30,8 +30,8 @@ class AcceptTabViewController: UIViewController,UIWebViewDelegate {
     func parseJSON(){
         let uid = prefs.string(forKey: "userID")
         if prefs.string(forKey: "qrcodestirng") == nil{
-        let urlpath = "http://35.154.46.78:1337/qrcode/generateqrcodeforios?id=\(uid!)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
-        let url = URL(string: urlpath!)
+            if let urlpath = "http://35.154.46.78:1337/qrcode/generateqrcodeforios?id=\(uid!)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed){
+        let url = URL(string: urlpath)
         
         let jsonData = try? Data(contentsOf: url! as URL, options: [])
         let readableJSON = JSON(data: jsonData! as Data, options: JSONSerialization.ReadingOptions.mutableContainers, error: nil)
@@ -39,6 +39,7 @@ class AcceptTabViewController: UIViewController,UIWebViewDelegate {
         qrdata = readableJSON["code"].string! as String
         prefs.set(qrdata, forKey: "qrCodeString")
         //print(qrdata!)
+        }
         }
         let newurl = URL(string : qrdata)!
         // It Will turn Into Data
@@ -52,8 +53,8 @@ class AcceptTabViewController: UIViewController,UIWebViewDelegate {
         // pass the data image to image View.:)
         testImage.image = dataImage
         
-       
     }
+    
 }
 
 

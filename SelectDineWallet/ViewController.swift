@@ -12,6 +12,7 @@ import GoogleSignIn
 
 class ViewController: UIViewController, FBSDKLoginButtonDelegate, GIDSignInUIDelegate {
 
+    @IBOutlet var GSignIn: UIView!
     let prefs = UserDefaults.standard
     
     override func viewDidLoad() {
@@ -20,18 +21,20 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate, GIDSignInUIDel
         GIDSignIn.sharedInstance().signInSilently()
         fbButtonInit()
         
-        let googleButton = GIDSignInButton(frame: CGRect(x: 125, y: 500, width: 100, height: 50))
-        view.addSubview(googleButton)
         
         if (prefs.value(forKey: "userID") != nil){
+        presentHome()
+        }
+        
+    }
+    func presentHome(){
+        
             let appDelegate = UIApplication.shared.delegate! as! AppDelegate
             let initialViewController = self.storyboard!.instantiateViewController(withIdentifier: "Home")
             appDelegate.window?.rootViewController = initialViewController
             appDelegate.window?.makeKeyAndVisible()
-        }
         
     }
-    
   
     
     
@@ -47,13 +50,10 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate, GIDSignInUIDel
         if error != nil{
             print("Error logging in:\(error)")
             return
-        }
+        }else{
         print("Successfully logged in")
-        let alert = UIAlertController(title: "Successful!", message: "Login successfull", preferredStyle: .actionSheet)
-        alert.addAction(UIAlertAction(title: "Ok", style: .default) { action in
-            // perhaps use action.title here
-        })
-        self.present(alert, animated: true)
+        presentHome()
+    }
     }
    
     func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
