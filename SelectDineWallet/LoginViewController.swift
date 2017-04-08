@@ -38,6 +38,7 @@ class LoginViewController: UIViewController {
         
         let message = readableJSON["message"].string! as String
         status = readableJSON["status"].int! as Int
+            if(status == 2006){
         let email = readableJSON["email"].string! as String
         let phone = readableJSON["mobile"].int! as Int
         let userID = readableJSON["userid"].string! as String
@@ -47,6 +48,7 @@ class LoginViewController: UIViewController {
         prefs.set(phone, forKey: "phone")
         prefs.set(name, forKey: "name")
         print("\(status):\(message)")
+            }
         let alert = UIAlertController(title: "Login", message: "\(message)", preferredStyle: .actionSheet)
         alert.addAction(UIAlertAction(title: "Ok", style: .default) { action in
             // perhaps use action.title here

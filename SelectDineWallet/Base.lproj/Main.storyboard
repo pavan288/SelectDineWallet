@@ -746,7 +746,7 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="Logout"/>
                                         <connections>
-                                            <action selector="logoutPressed:" destination="KLL-Tt-mKy" eventType="touchUpInside" id="NXK-92-RCl"/>
+                                            <action selector="logoutPressed:" destination="KLL-Tt-mKy" eventType="touchUpInside" id="Bf5-WZ-UT9"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -1020,7 +1020,7 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <action selector="loginPressed:" destination="GMm-ze-Ddd" eventType="touchUpInside" id="sIP-gB-9RA"/>
+                                            <action selector="confirmPressed:" destination="JcJ-ap-hFj" eventType="touchUpInside" id="Ttq-dw-DJV"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -1167,6 +1167,9 @@
                                                 <constraint firstItem="XTr-MD-P9w" firstAttribute="leading" secondItem="Fec-el-bak" secondAttribute="trailing" constant="17" id="seD-uO-vuE"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="KVW-lV-Aj9" kind="show" id="DC8-0i-jfk"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="lki-10-1Cp">
                                         <rect key="frame" x="0.0" y="132" width="359" height="44"/>
@@ -1311,6 +1314,119 @@
             </objects>
             <point key="canvasLocation" x="3590" y="-909"/>
         </scene>
+        <!--Pay View Controller-->
+        <scene sceneID="Nax-28-j2y">
+            <objects>
+                <viewController id="KVW-lV-Aj9" customClass="PayViewController" customModule="SelectDineWallet" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="GYk-AT-uWD"/>
+                        <viewControllerLayoutGuide type="bottom" id="CFM-BN-nxV"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="6H5-1o-qme">
+                        <rect key="frame" x="0.0" y="0.0" width="359" height="481"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Xd8-70-nV8">
+                                <rect key="frame" x="0.0" y="-3" width="375" height="58"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CnD-Ht-Qnm">
+                                        <rect key="frame" x="8" y="19" width="46" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Back">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="dismissVC:" destination="KVW-lV-Aj9" eventType="touchUpInside" id="hD2-6n-4ia"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.85307604069999998" green="0.25363296270000002" blue="0.16638588909999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gOX-iN-Ygj">
+                                <rect key="frame" x="8" y="72" width="358" height="400"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Account Holder's name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3sP-VU-FQE">
+                                        <rect key="frame" x="8" y="37" width="342" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KSW-XE-XID">
+                                        <rect key="frame" x="8" y="68" width="342" height="40"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="0.94874948260000003" green="0.94517356159999999" blue="0.94494754079999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Account Number" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2ag-s9-c8B">
+                                        <rect key="frame" x="8" y="138" width="342" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1KZ-fN-lCb">
+                                        <rect key="frame" x="8" y="170" width="342" height="40"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="0.94874948260000003" green="0.94517356159999999" blue="0.94494754079999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="IFSC Code" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YtH-hc-4MH">
+                                        <rect key="frame" x="8" y="238" width="170" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wEM-oq-WFo">
+                                        <rect key="frame" x="8" y="269" width="342" height="40"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="0.94874948260000003" green="0.94517356159999999" blue="0.94494754079999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yIR-9H-kG6">
+                                        <rect key="frame" x="7" y="338" width="343" height="40"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="0.85307604069999998" green="0.25363296270000002" blue="0.16638588909999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" title="SAVE DETAILS">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="confirmPressed:" destination="KVW-lV-Aj9" eventType="touchUpInside" id="O5p-6T-gjE"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fmq-n3-1zo">
+                                        <rect key="frame" x="245" y="229" width="85" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="IFSC Finder">
+                                            <color key="titleColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                                        </state>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.94874948260000003" green="0.94517356159999999" blue="0.94494754079999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="8iE-Yh-q7K"/>
+                    <connections>
+                        <outlet property="amount" destination="1KZ-fN-lCb" id="p4L-pB-e2j"/>
+                        <outlet property="phNumber" destination="KSW-XE-XID" id="FJi-ya-jjM"/>
+                        <outlet property="reason" destination="wEM-oq-WFo" id="SEB-Jx-LCp"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TJT-WF-pFI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4429.6000000000004" y="-910.79460269865069"/>
+        </scene>
     </scenes>
     <resources>
         <image name="Accept-Money-Brown" width="162" height="162"/>
@@ -1336,8 +1452,8 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="fKt-29-hCR"/>
-        <segue reference="iwT-XH-ccQ"/>
         <segue reference="RCW-G6-Lgd"/>
+        <segue reference="iwT-XH-ccQ"/>
         <segue reference="nmL-Eg-e0O"/>
     </inferredMetricsTieBreakers>
 </document>

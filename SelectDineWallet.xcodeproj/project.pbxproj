@@ -12,6 +12,7 @@
 		274EF4BC1E92AB340015FED2 /* PaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274EF4BB1E92AB340015FED2 /* PaymentViewController.swift */; };
 		274EF4BE1E9372EB0015FED2 /* PayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274EF4BD1E9372EB0015FED2 /* PayViewController.swift */; };
 		274EF4C31E953EB30015FED2 /* WalletTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274EF4C21E953EB30015FED2 /* WalletTabViewController.swift */; };
+		2750CBC71E96939A00261269 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2750CBC61E96939A00261269 /* TableViewController.swift */; };
 		27D0F6C21E84E1AC00DEFB50 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D0F6C11E84E1AC00DEFB50 /* AppDelegate.swift */; };
 		27D0F6C41E84E1AC00DEFB50 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D0F6C31E84E1AC00DEFB50 /* ViewController.swift */; };
 		27D0F6CA1E84E1AC00DEFB50 /* SelectDineWallet.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 27D0F6C81E84E1AC00DEFB50 /* SelectDineWallet.xcdatamodeld */; };
@@ -39,6 +40,7 @@
 		274EF4BB1E92AB340015FED2 /* PaymentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentViewController.swift; sourceTree = "<group>"; };
 		274EF4BD1E9372EB0015FED2 /* PayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PayViewController.swift; sourceTree = "<group>"; };
 		274EF4C21E953EB30015FED2 /* WalletTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WalletTabViewController.swift; sourceTree = "<group>"; };
+		2750CBC61E96939A00261269 /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		27D0F6BE1E84E1AC00DEFB50 /* SelectDineWallet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SelectDineWallet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		27D0F6C11E84E1AC00DEFB50 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		27D0F6C31E84E1AC00DEFB50 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -110,6 +112,7 @@
 			isa = PBXGroup;
 			children = (
 				274EF4B81E9264900015FED2 /* ProfileTabViewController.swift */,
+				2750CBC61E96939A00261269 /* TableViewController.swift */,
 			);
 			name = ProfileTab;
 			sourceTree = "<group>";
@@ -319,6 +322,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				27D0F6E21E857F9100DEFB50 /* LoginViewController.swift in Sources */,
+				2750CBC71E96939A00261269 /* TableViewController.swift in Sources */,
 				274EF4BC1E92AB340015FED2 /* PaymentViewController.swift in Sources */,
 				27D0F6C41E84E1AC00DEFB50 /* ViewController.swift in Sources */,
 				27D0F6C21E84E1AC00DEFB50 /* AppDelegate.swift in Sources */,
