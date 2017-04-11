@@ -832,7 +832,7 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="356" height="66"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <connections>
-                                                            <segue destination="KVW-lV-Aj9" kind="show" identifier="UpdateAccount" id="fr1-Pw-8sd"/>
+                                                            <segue destination="KVW-lV-Aj9" kind="show" identifier="UpdateAccount" id="t7Y-nb-ta2"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -1272,23 +1272,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Xd8-70-nV8">
-                                <rect key="frame" x="0.0" y="-3" width="375" height="58"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CnD-Ht-Qnm">
-                                        <rect key="frame" x="8" y="19" width="46" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="Back">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="dismissVC:" destination="KVW-lV-Aj9" eventType="touchUpInside" id="sco-js-06u"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" red="0.85307604069999998" green="0.25363296270000002" blue="0.16638588909999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </view>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gOX-iN-Ygj">
                                 <rect key="frame" x="8" y="72" width="358" height="400"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1362,6 +1345,24 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pYZ-8N-mvq">
+                                <rect key="frame" x="0.0" y="-1" width="375" height="58"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6sy-Vu-RWF">
+                                        <rect key="frame" x="8" y="19" width="46" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Back">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="dismissVC:" destination="JcJ-ap-hFj" eventType="touchUpInside" id="2D4-cW-NBN"/>
+                                            <action selector="dismissVC:" destination="KVW-lV-Aj9" eventType="touchUpInside" id="4mc-ug-3yO"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.85307604069999998" green="0.25363296270000002" blue="0.16638588909999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.94874948260000003" green="0.94517356159999999" blue="0.94494754079999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
@@ -1374,50 +1375,76 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TJT-WF-pFI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4471" y="-952"/>
+            <point key="canvasLocation" x="4473" y="-952"/>
         </scene>
         <!--Banks Table View Controller-->
-        <scene sceneID="WZi-Cf-ddw">
+        <scene sceneID="K1a-j6-sYv">
             <objects>
-                <tableViewController id="ZyX-ZC-Rx3" customClass="BanksTableViewController" customModule="SelectDineWallet" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="iwi-Bw-3Fg">
+                <viewController id="oI9-bI-h7y" customClass="BanksTableViewController" customModule="SelectDineWallet" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Oee-p8-8rc"/>
+                        <viewControllerLayoutGuide type="bottom" id="gPi-tb-93n"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Xv2-58-Pun">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tGE-HO-Ddh">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="58"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R6E-ae-8F2">
+                                        <rect key="frame" x="8" y="19" width="46" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Back">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="dismissVC:" destination="JcJ-ap-hFj" eventType="touchUpInside" id="05E-HW-bLE"/>
+                                            <action selector="dismissVC:" destination="oI9-bI-h7y" eventType="touchUpInside" id="k1D-X7-o2M"/>
+                                            <action selector="dismissVC:" destination="EMW-5V-zjE" eventType="touchUpInside" id="tvT-fo-bJi"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.85307604069999998" green="0.25363296270000002" blue="0.16638588909999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="eOe-bS-Zs0">
+                                <rect key="frame" x="0.0" y="57" width="375" height="610"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="bankNameCell" id="Q28-6J-vvW" customClass="BankTableViewCell" customModule="SelectDineWallet" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Q28-6J-vvW" id="Hap-Uc-3hT">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Bank Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jhn-ge-Gyn">
+                                                    <rect key="frame" x="8" y="11" width="359" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="bankName" destination="Jhn-ge-Gyn" id="L8O-yI-bhg"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="bankNameCell" id="crs-Bg-7ay" customClass="BankTableViewCell" customModule="SelectDineWallet" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="crs-Bg-7ay" id="Wxr-Nh-8zr">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Bank Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Kj-oI-OXc">
-                                            <rect key="frame" x="8" y="11" width="359" height="21"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                </tableViewCellContentView>
-                                <connections>
-                                    <outlet property="bankName" destination="1Kj-oI-OXc" id="qn0-kw-xjF"/>
-                                </connections>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="ZyX-ZC-Rx3" id="aay-PA-YWq"/>
-                            <outlet property="delegate" destination="ZyX-ZC-Rx3" id="r1K-va-gNX"/>
-                        </connections>
-                    </tableView>
+                    </view>
                     <connections>
-                        <outlet property="bankTableView" destination="iwi-Bw-3Fg" id="ydD-aV-44s"/>
+                        <outlet property="bankTableView" destination="eOe-bS-Zs0" id="OZR-lb-4nk"/>
                     </connections>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="QTP-f2-Eca" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0jY-fA-1ZD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6060" y="-952.17391304347836"/>
+            <point key="canvasLocation" x="6069.6000000000004" y="-952.17391304347836"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="XXu-Gr-hLF">
@@ -1431,23 +1458,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DMy-mX-u82">
-                                <rect key="frame" x="0.0" y="-3" width="375" height="58"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j6l-Uj-TAP">
-                                        <rect key="frame" x="8" y="19" width="46" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="Back">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="dismissVC:" destination="EMW-5V-zjE" eventType="touchUpInside" id="1Bz-4R-DFr"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" red="0.85307604069999998" green="0.25363296270000002" blue="0.16638588909999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </view>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RvS-ak-6QC">
                                 <rect key="frame" x="8" y="72" width="358" height="442"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1516,7 +1526,7 @@
                                         <rect key="frame" x="8" y="68" width="342" height="40"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <connections>
-                                            <segue destination="ZyX-ZC-Rx3" kind="show" id="Bcg-9W-5Ez"/>
+                                            <segue destination="oI9-bI-h7y" kind="show" id="QYi-tA-gwT"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UHW-Vd-fnL">
@@ -1534,6 +1544,24 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QOv-eX-Lki">
+                                <rect key="frame" x="0.0" y="-1" width="375" height="58"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GsX-jd-EQx">
+                                        <rect key="frame" x="8" y="19" width="46" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Back">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="dismissVC:" destination="JcJ-ap-hFj" eventType="touchUpInside" id="gKl-0x-Don"/>
+                                            <action selector="dismissVC:" destination="EMW-5V-zjE" eventType="touchUpInside" id="vLQ-RE-RgR"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.85307604069999998" green="0.25363296270000002" blue="0.16638588909999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.94874948260000003" green="0.94517356159999999" blue="0.94494754079999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
@@ -1547,7 +1575,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cQj-IV-kKH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5324" y="-952.17391304347836"/>
+            <point key="canvasLocation" x="5263" y="-952"/>
         </scene>
     </scenes>
     <resources>
@@ -1576,6 +1604,6 @@
         <segue reference="fl7-12-IP8"/>
         <segue reference="cV9-6r-juL"/>
         <segue reference="nmL-Eg-e0O"/>
-        <segue reference="NgZ-rc-CtR"/>
+        <segue reference="iwT-XH-ccQ"/>
     </inferredMetricsTieBreakers>
 </document>

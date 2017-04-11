@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 import SwiftyJSON
 
-class BanksTableViewController: UITableViewController {
+class BanksTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     let searchController = UISearchController(searchResultsController: nil)
     var filteredBanks = [bankModel]()
@@ -22,13 +22,16 @@ class BanksTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        bankTableView.delegate = self
+        bankTableView.dataSource = self
        
         
-      /*  searchController.searchResultsUpdater = self
+        //searchController.searchResultsUpdater = self
         searchController.dimsBackgroundDuringPresentation = false
         definesPresentationContext = true
         bankTableView.tableHeaderView = searchController.searchBar
-        searchController.hidesNavigationBarDuringPresentation = false*/
+        searchController.hidesNavigationBarDuringPresentation = false
         
         parseJSON()
 
@@ -71,7 +74,7 @@ class BanksTableViewController: UITableViewController {
     // MARK: - Table view data source
 
 
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if searchController.isActive && searchController.searchBar.text != "" {
             return filteredBanks.count
         }
@@ -79,7 +82,7 @@ class BanksTableViewController: UITableViewController {
     }
 
 
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "bankNameCell", for: indexPath) as! BankTableViewCell
 
         // Configure the cell...
@@ -90,6 +93,9 @@ class BanksTableViewController: UITableViewController {
     }
     
 
+    @IBAction func dismissVC(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
 
     /*
     // MARK: - Navigation
