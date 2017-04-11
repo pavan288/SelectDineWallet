@@ -9,6 +9,8 @@
 import UIKit
 
 class PaymentViewController: UIViewController {
+    
+    let prefs = UserDefaults.standard
 
     @IBOutlet var PayView: UIView!
     /*
@@ -19,6 +21,16 @@ class PaymentViewController: UIViewController {
     }
     */
     override func viewDidLoad() {
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "Payment" {
+            let destinationVC = segue.destination as! PayViewController
+            let phoneNumber = prefs.value(forKey: "phone")
+            destinationVC.defaultNumber = phoneNumber as! Int
+            destinationVC.phoneFlag = 0
+            
+        }
     }
 
 }

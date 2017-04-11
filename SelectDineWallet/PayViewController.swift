@@ -17,6 +17,7 @@ class PayViewController: UIViewController {
     @IBOutlet var amount: UITextField!
     @IBOutlet var reason: UITextField!
     let prefs = UserDefaults.standard
+    let baseUrl = "http://35.154.46.78:1337"
     
     override func viewDidLoad() {
         
@@ -46,13 +47,63 @@ class PayViewController: UIViewController {
         }else if phoneFlag == 0{
             payUser()
         }else if phoneFlag == 2{
-            payUser()
+            addCredits()
         }
+    }
+    
+    
+    func addCredits(){
+        if let number = phNumber.text , let amt = amount.text{
+            let urlpath = "\(baseUrl)/payment/addMoneyToWalletFromAccount?id=\(prefs.value(forKey: "userID")!)&amount=\(amt)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
+            let url = URL(string: urlpath!)
+            if let jsonData = try? Data(contentsOf: url! as URL, options: []) {
+            let readableJSON = JSON(data: jsonData as Data, options: JSONSerialization.ReadingOptions.mutableContainers, error: nil)
+        //    if readableJSON.exists(){
+            let status = readableJSON["status"].int! as Int
+            
+            if status == 9995{
+                let alert = UIAlertController(title: "Error!", message: "User not found", preferredStyle: .actionSheet)
+                alert.addAction(UIAlertAction(title: "Ok", style: .default) { action in
+                    // perhaps use action.title here
+                })
+                self.present(alert, animated: true)
+                
+            }else if status == 9999{
+                let alert = UIAlertController(title: "Error!", message: "Please check your data", preferredStyle: .actionSheet)
+                alert.addAction(UIAlertAction(title: "Ok", style: .default) { action in
+                    // perhaps use action.title here
+                })
+                self.present(alert, animated: true)
+                
+            }else if status == 9997{
+                let alert = UIAlertController(title: "Success!", message: "Credits added!", preferredStyle: .actionSheet)
+                alert.addAction(UIAlertAction(title: "Ok", style: .default) { action in
+                    // perhaps use action.title here
+                })
+                self.present(alert, animated: true)
+                
+            }else{
+                let alert = UIAlertController(title: "Error", message: "An error occured! Please try again later!", preferredStyle: .actionSheet)
+                alert.addAction(UIAlertAction(title: "Ok", style: .default) { action in
+                    // perhaps use action.title here
+                })
+                self.present(alert, animated: true)
+            }
+            }
+            
+        }else{
+            let alert = UIAlertController(title: "Login", message: "Please enter an amount", preferredStyle: .actionSheet)
+            alert.addAction(UIAlertAction(title: "Ok", style: .default) { action in
+                // perhaps use action.title here
+            })
+            self.present(alert, animated: true)
+        }
+    
     }
     
     func transferToBank(){
         if let number = phNumber.text {
-            let urlpath = "http://35.154.46.78:1337/payment/ifPayWithReceiversMobileNo?mobileNo=\(Int(number)!)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
+            let urlpath = "\(baseUrl)/payment/ifPayWithReceiversMobileNo?mobileNo=\(Int(number)!)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
             let url = URL(string: urlpath!)
             
             let jsonData = try? Data(contentsOf: url! as URL, options: [])
@@ -62,7 +113,7 @@ class PayViewController: UIViewController {
             let userid = readableJSON["userId"].string! as String
             
             if(status == 597){
-                let urlpath = "http://35.154.46.78:1337/payment/paymentReceiveBegin?receiverId=\(userid)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
+                let urlpath = "\(baseUrl)/payment/paymentReceiveBegin?receiverId=\(userid)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
                 let url = URL(string: urlpath!)
                 
                 let jsonData = try? Data(contentsOf: url! as URL, options: [])
@@ -74,7 +125,7 @@ class PayViewController: UIViewController {
                 print(message)
                 
                 if status == 5657{
-                    let urlpath = "http://35.154.46.78:1337/payment/walletToBankTransfer?userId=\(userid)&amount=\(amount.text!)&reason=\(reason.text!)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
+                    let urlpath = "\(baseUrl)/payment/walletToBankTransfer?userId=\(userid)&amount=\(amount.text!)&reason=\(reason.text!)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
                     let url = URL(string: urlpath!)
                     
                     let jsonData = try? Data(contentsOf: url! as URL, options: [])
@@ -132,7 +183,7 @@ class PayViewController: UIViewController {
         if let number = phNumber.text , let amt = amount.text {
             let reason = self.reason.text!
             if (number != "") && (amt != ""){
-             let urlpath = "http://35.154.46.78:1337/payment/ifPayWithReceiversMobileNo?mobileNo=\(number)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
+             let urlpath = "\(baseUrl)/payment/ifPayWithReceiversMobileNo?mobileNo=\(number)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
             let url = URL(string: urlpath!)
             let jsonData = try? Data(contentsOf: url! as URL, options: [])
             let readableJSON = JSON(data: jsonData! as Data, options: JSONSerialization.ReadingOptions.mutableContainers, error: nil)
@@ -140,7 +191,7 @@ class PayViewController: UIViewController {
             let userid = readableJSON["userId"].string! as String
             
             if(status == 597){
-                let urlpath = "http://35.154.46.78:1337/payment/paymentReceiveBegin?receiverId=\(userid)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
+                let urlpath = "\(baseUrl)/payment/paymentReceiveBegin?receiverId=\(userid)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
                 let url = URL(string: urlpath!)
                 let jsonData = try? Data(contentsOf: url! as URL, options: [])
                 let readableJSON = JSON(data: jsonData! as Data, options: JSONSerialization.ReadingOptions.mutableContainers, error: nil)
@@ -151,7 +202,7 @@ class PayViewController: UIViewController {
                 print(message)
                 
                 if status == 5657{
-                    let urlpath = "http://35.154.46.78:1337/payment/walletToBankTransfer?userId=\(userid)&amount=\(amt)&reason=\(reason)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
+                    let urlpath = "\(baseUrl)/payment/walletToBankTransfer?userId=\(userid)&amount=\(amt)&reason=\(reason)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
                     let url = URL(string: urlpath!)
                     let jsonData = try? Data(contentsOf: url! as URL, options: [])
                     let readableJSON = JSON(data: jsonData! as Data, options: JSONSerialization.ReadingOptions.mutableContainers, error: nil)

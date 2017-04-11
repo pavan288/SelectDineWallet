@@ -13,7 +13,7 @@ class AcceptTabViewController: UIViewController,UIWebViewDelegate {
     
     let prefs = UserDefaults.standard
     @IBOutlet var testImage: UIImageView!
-    
+    let baseUrl = "http://35.154.46.78:1337"
     var qrdata:String! = nil
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,7 +30,7 @@ class AcceptTabViewController: UIViewController,UIWebViewDelegate {
     func parseJSON(){
         let uid = prefs.string(forKey: "userID")
         if prefs.string(forKey: "qrcodestirng") == nil{
-            if let urlpath = "http://35.154.46.78:1337/qrcode/generateqrcodeforios?id=\(uid!)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed){
+            if let urlpath = "\(baseUrl)/qrcode/generateqrcodeforios?id=\(uid!)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed){
         let url = URL(string: urlpath)
         
                 if let jsonData = try? Data(contentsOf: url! as URL, options: []){

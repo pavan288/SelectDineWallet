@@ -20,6 +20,7 @@ class HomeTabView: UIViewController,UIScrollViewDelegate {
     var featureArray = [Dictionary<String,String>]()
     
     let prefs = UserDefaults.standard
+    let baseUrl = "http://35.154.46.78:1337"
     
     override func viewDidLoad() {
         featureArray = [feature1,feature2,feature3,feature4]
@@ -35,7 +36,6 @@ class HomeTabView: UIViewController,UIScrollViewDelegate {
         for(index,feature) in featureArray.enumerated(){
             if let featureView = Bundle.main.loadNibNamed("HomeScroller", owner: self, options: nil)?.first as? HomeScrollView {
                 featureView.coverImage.image = UIImage(named:feature["image"]!)
-                
                 coverView.addSubview(featureView)
                 featureView.frame.size.width = self.view.bounds.size.width
                 featureView.frame.origin.x = CGFloat(index) * self.view.bounds.size.width
@@ -60,7 +60,7 @@ class HomeTabView: UIViewController,UIScrollViewDelegate {
             let destinationVC = segue.destination as! PayViewController
             let phoneNumber = prefs.value(forKey: "phone")
             destinationVC.defaultNumber = phoneNumber as! Int!
-            destinationVC.phoneFlag = 1
+            destinationVC.phoneFlag = 2
             
         }
     }

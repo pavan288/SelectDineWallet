@@ -19,10 +19,10 @@ class LoginViewController: UIViewController {
     
     
     let prefs = UserDefaults.standard
+    let baseUrl = "http://35.154.46.78:1337"
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         firstScreen.fbButtonInit()
       
         // Do any additional setup after loading the view.
@@ -30,7 +30,7 @@ class LoginViewController: UIViewController {
     
     func parseJSON() -> Int{
         var status:Int! = 0
-        let urlpath = "http://35.154.46.78:1337/user/login?email=\(username.text!)&password=\(password.text!)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
+        let urlpath = "\(baseUrl)/user/login?email=\(username.text!)&password=\(password.text!)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
         let url = URL(string: urlpath!)
 
         if let jsonData = try? Data(contentsOf: url! as URL, options: []){

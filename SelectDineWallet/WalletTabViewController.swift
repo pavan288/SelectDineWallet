@@ -41,7 +41,7 @@ class WalletTabViewController: UIViewController {
             let destinationVC = segue.destination as! PayViewController
             let phoneNumber = prefs.value(forKey: "phone")
             destinationVC.defaultNumber = phoneNumber as! Int!
-            destinationVC.phoneFlag = 1
+            destinationVC.phoneFlag = 2
     
         }
 
