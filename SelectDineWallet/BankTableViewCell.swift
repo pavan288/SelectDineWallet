@@ -10,8 +10,10 @@ import UIKit
 
 class BankTableViewCell: UITableViewCell {
 
+    @IBOutlet var stateName: UILabel!
     @IBOutlet var bankName: UILabel!
-    
+    @IBOutlet var cityName: UILabel!
+    @IBOutlet var branchName: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

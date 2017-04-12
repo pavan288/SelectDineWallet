@@ -11,16 +11,16 @@ import Foundation
 class bankModel{
     
     var bankName: String
-    /*var bankState: String
-    var bankCity: String
+    var bankState: String
+   /* var bankCity: String
     var bankBranch: String*/
-    /*, bankState: String, bankCity: String, bankBranch: String*/
+    /*, bankCity: String, bankBranch: String*/
     
-    init(bankName: String){
+    init(bankName: String, bankState: String){
         
         self.bankName = bankName
-       /* self.bankState = bankState
-        self.bankCity = bankCity
+        self.bankState = bankState
+        /*self.bankCity = bankCity
         self.bankBranch = bankBranch*/
     }
     
