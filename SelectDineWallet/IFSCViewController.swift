@@ -72,12 +72,19 @@ class IFSCViewController: UIViewController, DataEnteredDelegate, StateEnteredDel
         }else if segue.identifier == "showStates" {
             let secondViewController = segue.destination as! StateTableView
             secondViewController.delegate = self
+            secondViewController.test = bankName.text!
         }else if segue.identifier == "showCities" {
             let secondViewController = segue.destination as! CityTableView
             secondViewController.delegate = self
+            secondViewController.test = bankName.text!
+            secondViewController.test1 = stateName.text!
+            
         }else if segue.identifier == "showBranches" {
             let secondViewController = segue.destination as! BranchTableView
             secondViewController.delegate = self
+            secondViewController.test = bankName.text!
+            secondViewController.test1 = stateName.text!
+            secondViewController.test3 = cityName.text!
         }
         
     }
