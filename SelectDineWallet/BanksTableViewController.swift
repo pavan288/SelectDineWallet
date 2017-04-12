@@ -9,25 +9,25 @@ import Foundation
 import UIKit
 import SwiftyJSON
 
-class BanksTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class BanksTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchDisplayDelegate, UISearchBarDelegate {
     
     let searchController = UISearchController(searchResultsController: nil)
-    var filteredBanks = [bankModel]()
-    var tempBanks = [bankModel]()
+    var filteredBanks = [String]()
     var banks = [String]()
     var test:String!
     var NumberOfRows = 0
     @IBOutlet var bankTableView: UITableView!
     let baseUrl = "http://35.154.46.78:1337"
+    var searchActive : Bool = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         bankTableView.delegate = self
         bankTableView.dataSource = self
+      //  searchController.delegate = self
        
-        
-        //searchController.searchResultsUpdater = self
+        searchController.searchResultsUpdater = self
         searchController.dimsBackgroundDuringPresentation = false
         definesPresentationContext = true
         bankTableView.tableHeaderView = searchController.searchBar
@@ -51,21 +51,17 @@ class BanksTableViewController: UIViewController, UITableViewDelegate, UITableVi
             
             NumberOfRows = readableJSON["banks"].count as Int
     }
-    }
-    
-  /*  func searchDisplayController(controller: UISearchController!, shouldReloadTableForSearchString searchString: String!) -> Bool {
-        self.filterContentForSearchText(searchText: searchString)
-        return true
+        filteredBanks = banks
     }
     
     func filterContentForSearchText(searchText: String, scope: String = "All") {
-        filteredBanks = banks.filter({ bank in
+        filteredBanks = banks.filter { bank in
             return bank.lowercased().contains(searchText.lowercased())
-        })
-        
+            
+        }
         bankTableView.reloadData()
-    }*/
-
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -78,24 +74,34 @@ class BanksTableViewController: UIViewController, UITableViewDelegate, UITableVi
         if searchController.isActive && searchController.searchBar.text != "" {
             return filteredBanks.count
         }
-        return NumberOfRows
+        return banks.count
     }
 
 
      func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "bankNameCell", for: indexPath) as! BankTableViewCell
-
-        // Configure the cell...
         
-        cell.bankName.text = banks[indexPath.row]
-
+        if searchController.isActive && searchController.searchBar.text != "" {
+          cell.bankName.text = filteredBanks[indexPath.row]
+        }else{
+       cell.bankName.text = banks[indexPath.row]
+        }
         return cell
     }
     
 
+
     @IBAction func dismissVC(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
+}
+extension BanksTableViewController: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+         filterContentForSearchText(searchText: searchController.searchBar.text!)
+    }
+}
+
+
 
     /*
     // MARK: - Navigation
@@ -108,12 +114,4 @@ class BanksTableViewController: UIViewController, UITableViewDelegate, UITableVi
     */
 
     
-}
-/*extension BanksTableViewController: UISearchResultsUpdating {
-    @available(iOS 8.0, *)
-    public func updateSearchResults(for searchController: UISearchController) {
-        filterContentForSearchText(searchText: searchController.searchBar.text!)
-        bankTableView.reloadData()
-    }
 
-}*/
