@@ -10,6 +10,9 @@ import UIKit
 
 class IFSCViewController: UIViewController, DataEnteredDelegate, StateEnteredDelegate, CityEnteredDelegate, BranchEnteredDelegate {
 
+    @IBOutlet var branchButton: UIButton!
+    @IBOutlet var cityButton: UIButton!
+    @IBOutlet var stateButton: UIButton!
     @IBOutlet var bankName: UITextField!
     @IBOutlet var stateName: UITextField!
     @IBOutlet var cityName: UITextField!
@@ -21,6 +24,15 @@ class IFSCViewController: UIViewController, DataEnteredDelegate, StateEnteredDel
         setStateName(name: "")
         setCityName(name: "")
         setBranchName(name: "")
+        
+        stateName.isUserInteractionEnabled = false
+        cityName.isUserInteractionEnabled = false
+        branchName.isUserInteractionEnabled = false
+        
+        stateButton.isEnabled = false
+        cityButton.isEnabled = false
+        branchButton.isEnabled = false
+        
         // Do any additional setup after loading the view.
     }
 
@@ -72,12 +84,15 @@ class IFSCViewController: UIViewController, DataEnteredDelegate, StateEnteredDel
     
     func userDidEnterBank(info: String) {
         self.bankName.text = info
+        stateButton.isEnabled = true
     }
     func userDidEnterState(info: String) {
         self.stateName.text = info
+        cityButton.isEnabled = true
     }
     func userDidEnterCity(info: String) {
         self.cityName.text = info
+        branchButton.isEnabled = true
     }
     func userDidEnterBranch(info: String) {
         self.branchName.text = info

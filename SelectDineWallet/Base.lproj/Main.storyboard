@@ -1577,8 +1577,11 @@
                     <navigationItem key="navigationItem" id="NaS-s4-GLp"/>
                     <connections>
                         <outlet property="bankName" destination="W6d-Z8-B3u" id="d8J-fa-WxI"/>
+                        <outlet property="branchButton" destination="Hre-sC-qAi" id="N9m-9s-eji"/>
                         <outlet property="branchName" destination="k3d-2E-eBg" id="7Me-SD-qkn"/>
+                        <outlet property="cityButton" destination="2Mt-7Q-vEH" id="sKC-t3-SBG"/>
                         <outlet property="cityName" destination="7GT-6z-Js4" id="luQ-OG-7j8"/>
+                        <outlet property="stateButton" destination="UHW-Vd-fnL" id="ffc-59-Ouj"/>
                         <outlet property="stateName" destination="IuY-bs-76a" id="tDB-2P-4KA"/>
                     </connections>
                 </viewController>
