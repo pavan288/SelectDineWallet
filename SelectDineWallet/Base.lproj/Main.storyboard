@@ -1526,7 +1526,7 @@
                                         <rect key="frame" x="8" y="68" width="342" height="40"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <connections>
-                                            <segue destination="oI9-bI-h7y" kind="show" id="QYi-tA-gwT"/>
+                                            <segue destination="oI9-bI-h7y" kind="show" identifier="showBanks" id="QYi-tA-gwT"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UHW-Vd-fnL">

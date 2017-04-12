@@ -127,12 +127,7 @@
 			children = (
 				274EF4B81E9264900015FED2 /* ProfileTabViewController.swift */,
 				2750CBC81E98D2C100261269 /* UpdateAccViewController.swift */,
-				2750CBCA1E99077D00261269 /* IFSCViewController.swift */,
-				2750CBCC1E9CA9D000261269 /* BanksTableViewController.swift */,
-				2750CBD21E9CB48F00261269 /* BankTableViewCell.swift */,
-				2750CBD41E9E091000261269 /* StatetableView.swift */,
-				2750CBD61E9E1E4F00261269 /* CitiyTableView.swift */,
-				2750CBD81E9E236F00261269 /* BranchTableView.swift */,
+				2750CBDA1E9E26E600261269 /* IFSC */,
 			);
 			name = ProfileTab;
 			sourceTree = "<group>";
@@ -159,6 +154,19 @@
 				2750CBD01E9CAACC00261269 /* BankModel.swift */,
 			);
 			name = Models;
+			sourceTree = "<group>";
+		};
+		2750CBDA1E9E26E600261269 /* IFSC */ = {
+			isa = PBXGroup;
+			children = (
+				2750CBCA1E99077D00261269 /* IFSCViewController.swift */,
+				2750CBCC1E9CA9D000261269 /* BanksTableViewController.swift */,
+				2750CBD21E9CB48F00261269 /* BankTableViewCell.swift */,
+				2750CBD41E9E091000261269 /* StatetableView.swift */,
+				2750CBD61E9E1E4F00261269 /* CitiyTableView.swift */,
+				2750CBD81E9E236F00261269 /* BranchTableView.swift */,
+			);
+			name = IFSC;
 			sourceTree = "<group>";
 		};
 		27D0F6B51E84E1AB00DEFB50 = {
