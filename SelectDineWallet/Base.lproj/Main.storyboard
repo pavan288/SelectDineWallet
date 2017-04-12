@@ -1533,21 +1533,21 @@
                                         <rect key="frame" x="8" y="170" width="342" height="40"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <connections>
-                                            <segue destination="iBJ-9V-aWf" kind="show" id="jcL-PH-C7q"/>
+                                            <segue destination="iBJ-9V-aWf" kind="show" identifier="showStates" id="jcL-PH-C7q"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Mt-7Q-vEH">
                                         <rect key="frame" x="8" y="269" width="342" height="40"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <connections>
-                                            <segue destination="cg3-e6-q7c" kind="show" id="bhM-wg-afw"/>
+                                            <segue destination="cg3-e6-q7c" kind="show" identifier="showCities" id="bhM-wg-afw"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hre-sC-qAi">
                                         <rect key="frame" x="8" y="379" width="342" height="40"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <connections>
-                                            <segue destination="TDA-E8-W86" kind="show" id="GpA-t7-erw"/>
+                                            <segue destination="TDA-E8-W86" kind="show" identifier="showBranches" id="GpA-t7-erw"/>
                                         </connections>
                                     </button>
                                 </subviews>

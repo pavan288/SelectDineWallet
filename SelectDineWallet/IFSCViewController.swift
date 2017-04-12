@@ -8,7 +8,7 @@
 
 import UIKit
 
-class IFSCViewController: UIViewController, DataEnteredDelegate {
+class IFSCViewController: UIViewController, DataEnteredDelegate, StateEnteredDelegate, CityEnteredDelegate, BranchEnteredDelegate {
 
     @IBOutlet var bankName: UITextField!
     @IBOutlet var stateName: UITextField!
@@ -57,11 +57,30 @@ class IFSCViewController: UIViewController, DataEnteredDelegate {
         if segue.identifier == "showBanks" {
             let secondViewController = segue.destination as! BanksTableViewController
             secondViewController.delegate = self
+        }else if segue.identifier == "showStates" {
+            let secondViewController = segue.destination as! StateTableView
+            secondViewController.delegate = self
+        }else if segue.identifier == "showCities" {
+            let secondViewController = segue.destination as! CityTableView
+            secondViewController.delegate = self
+        }else if segue.identifier == "showBranches" {
+            let secondViewController = segue.destination as! BranchTableView
+            secondViewController.delegate = self
         }
-
+        
     }
-    func userDidEnterInformation(info: String) {
+    
+    func userDidEnterBank(info: String) {
         self.bankName.text = info
+    }
+    func userDidEnterState(info: String) {
+        self.stateName.text = info
+    }
+    func userDidEnterCity(info: String) {
+        self.cityName.text = info
+    }
+    func userDidEnterBranch(info: String) {
+        self.branchName.text = info
     }
     
 

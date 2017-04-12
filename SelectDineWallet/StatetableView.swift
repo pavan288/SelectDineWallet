@@ -9,6 +9,10 @@ import Foundation
 import UIKit
 import SwiftyJSON
 
+protocol StateEnteredDelegate: class {
+    func userDidEnterState(info: String)
+}
+
 class StateTableView: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchDisplayDelegate, UISearchBarDelegate {
     
     let searchController = UISearchController(searchResultsController: nil)
@@ -19,6 +23,7 @@ class StateTableView: UIViewController, UITableViewDelegate, UITableViewDataSour
     var searchActive : Bool = false
     @IBOutlet var statesTableView: UITableView!
     var test:String = "bank of baroda"
+    weak var delegate: StateEnteredDelegate? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -87,6 +92,14 @@ class StateTableView: UIViewController, UITableViewDelegate, UITableViewDataSour
             cell.stateName.text = states[indexPath.row]
         }
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let currentCell = tableView.cellForRow(at: indexPath)! as! BankTableViewCell
+        print(currentCell.stateName!.text!)
+       delegate?.userDidEnterState(info: currentCell.stateName!.text!)
+        dismiss(animated: true, completion: nil)
+        
     }
     
     @IBAction func dismiss(_ sender: Any) {

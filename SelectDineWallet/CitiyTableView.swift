@@ -9,6 +9,10 @@ import Foundation
 import UIKit
 import SwiftyJSON
 
+protocol CityEnteredDelegate: class {
+    func userDidEnterCity(info: String)
+}
+
 class CityTableView: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchDisplayDelegate, UISearchBarDelegate {
     
     let searchController = UISearchController(searchResultsController: nil)
@@ -17,7 +21,7 @@ class CityTableView: UIViewController, UITableViewDelegate, UITableViewDataSourc
     var NumberOfRows = 0
     let baseUrl = "http://35.154.46.78:1337"
     var searchActive : Bool = false
-    
+    weak var delegate: CityEnteredDelegate? = nil
     var test:String = "Indian Bank"
     var test1:String = "Tamil Nadu"
     @IBOutlet var citiesTableView: UITableView!
@@ -90,6 +94,14 @@ class CityTableView: UIViewController, UITableViewDelegate, UITableViewDataSourc
             cell.cityName.text = cities[indexPath.row]
         }
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let currentCell = tableView.cellForRow(at: indexPath)! as! BankTableViewCell
+        print(currentCell.cityName!.text!)
+      delegate?.userDidEnterCity(info: currentCell.cityName!.text!)
+        dismiss(animated: true, completion: nil)
+        
     }
     
     @IBAction func dismiss(_ sender: Any) {

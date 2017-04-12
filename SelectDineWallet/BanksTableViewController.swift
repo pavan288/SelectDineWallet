@@ -10,7 +10,7 @@ import UIKit
 import SwiftyJSON
 
 protocol DataEnteredDelegate: class {
-    func userDidEnterInformation(info: String)
+    func userDidEnterBank(info: String)
 }
 
 class BanksTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchDisplayDelegate, UISearchBarDelegate {
@@ -23,7 +23,7 @@ class BanksTableViewController: UIViewController, UITableViewDelegate, UITableVi
     @IBOutlet var bankTableView: UITableView!
     let baseUrl = "http://35.154.46.78:1337"
     var searchActive : Bool = false
-    weak var delegate: DataEnteredDelegate? = nil
+   weak var delegate: DataEnteredDelegate? = nil
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -97,7 +97,7 @@ class BanksTableViewController: UIViewController, UITableViewDelegate, UITableVi
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let currentCell = tableView.cellForRow(at: indexPath)! as! BankTableViewCell
         print(currentCell.bankName!.text!)
-        delegate?.userDidEnterInformation(info: currentCell.bankName!.text!)
+      delegate?.userDidEnterBank(info: currentCell.bankName!.text!)
         dismiss(animated: true, completion: nil)
 
     }

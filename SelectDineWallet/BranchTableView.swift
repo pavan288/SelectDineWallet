@@ -9,6 +9,10 @@ import Foundation
 import UIKit
 import SwiftyJSON
 
+protocol BranchEnteredDelegate: class {
+    func userDidEnterBranch(info: String)
+}
+
 class BranchTableView: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchDisplayDelegate, UISearchBarDelegate {
     
     
@@ -19,7 +23,7 @@ class BranchTableView: UIViewController, UITableViewDelegate, UITableViewDataSou
     let baseUrl = "http://35.154.46.78:1337"
     var searchActive : Bool = false
     @IBOutlet var branchesTableView: UITableView!
-    
+    weak var delegate: BranchEnteredDelegate? = nil
     var test:String = "Indian Bank"
     var test1:String = "Tamil Nadu"
     var test3:String = "vellore"
@@ -92,6 +96,14 @@ class BranchTableView: UIViewController, UITableViewDelegate, UITableViewDataSou
             cell.branchName.text = branches[indexPath.row]
         }
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let currentCell = tableView.cellForRow(at: indexPath)! as! BankTableViewCell
+        print(currentCell.branchName!.text!)
+        delegate?.userDidEnterBranch(info: currentCell.branchName!.text!)
+        dismiss(animated: true, completion: nil)
+        
     }
     
     @IBAction func dismiss(_ sender: Any) {
