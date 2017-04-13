@@ -1339,7 +1339,7 @@
                                             <color key="titleColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                         </state>
                                         <connections>
-                                            <segue destination="EMW-5V-zjE" kind="show" id="BGL-N9-soq"/>
+                                            <segue destination="EMW-5V-zjE" kind="show" identifier="ifsc" id="BGL-N9-soq"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -1375,7 +1375,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TJT-WF-pFI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4426" y="-940"/>
+            <point key="canvasLocation" x="4476" y="-952"/>
         </scene>
         <!--Banks Table View Controller-->
         <scene sceneID="K1a-j6-sYv">
@@ -1587,7 +1587,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cQj-IV-kKH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5201" y="-940"/>
+            <point key="canvasLocation" x="5218" y="-952"/>
         </scene>
         <!--State Table View-->
         <scene sceneID="2Gl-IX-CyQ">

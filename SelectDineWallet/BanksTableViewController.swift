@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 import SwiftyJSON
 
-protocol DataEnteredDelegate: class {
+protocol BankEnteredDelegate: class {
     func userDidEnterBank(info: String)
 }
 
@@ -23,7 +23,7 @@ class BanksTableViewController: UIViewController, UITableViewDelegate, UITableVi
     @IBOutlet var bankTableView: UITableView!
     let baseUrl = "http://35.154.46.78:1337"
     var searchActive : Bool = false
-   weak var delegate: DataEnteredDelegate? = nil
+   weak var delegate: BankEnteredDelegate? = nil
 
     override func viewDidLoad() {
         super.viewDidLoad()

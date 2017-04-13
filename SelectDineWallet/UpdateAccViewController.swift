@@ -9,7 +9,7 @@
 import UIKit
 import SwiftyJSON
 
-class UpdateAccViewController: UIViewController {
+class UpdateAccViewController: UIViewController, IFSCDelegate {
     
     var userId: String! = ""
     let baseUrl = "http://35.154.46.78:1337"
@@ -25,6 +25,10 @@ class UpdateAccViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func userDidEnterDetails(info: String) {
+        self.ifscCode.text = info
     }
     
     
@@ -69,14 +73,18 @@ class UpdateAccViewController: UIViewController {
     
 
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        if segue.identifier == "ifsc" {
+            let secondViewController = segue.destination as! IFSCViewController
+            secondViewController.delegate = self
+        }
     }
-    */
+    
 
 }

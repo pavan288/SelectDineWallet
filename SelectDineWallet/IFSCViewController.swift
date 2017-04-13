@@ -7,8 +7,13 @@
 //
 
 import UIKit
+import SwiftyJSON
 
-class IFSCViewController: UIViewController, DataEnteredDelegate, StateEnteredDelegate, CityEnteredDelegate, BranchEnteredDelegate {
+protocol IFSCDelegate: class {
+    func userDidEnterDetails(info: String)
+}
+
+class IFSCViewController: UIViewController, BankEnteredDelegate, StateEnteredDelegate, CityEnteredDelegate, BranchEnteredDelegate {
 
     @IBOutlet var branchButton: UIButton!
     @IBOutlet var cityButton: UIButton!
@@ -17,6 +22,11 @@ class IFSCViewController: UIViewController, DataEnteredDelegate, StateEnteredDel
     @IBOutlet var stateName: UITextField!
     @IBOutlet var cityName: UITextField!
     @IBOutlet var branchName: UITextField!
+    let prefs = UserDefaults.standard
+    let baseUrl = "http://35.154.46.78:1337"
+    weak var delegate: IFSCDelegate? = nil
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -103,6 +113,28 @@ class IFSCViewController: UIViewController, DataEnteredDelegate, StateEnteredDel
     }
     func userDidEnterBranch(info: String) {
         self.branchName.text = info
+        parseJSON()
+        
+    }
+    
+    
+    func parseJSON(){
+        if let bank = bankName.text , let state = stateName.text, let city = cityName.text, let branch = branchName.text{
+            let urlpath = "\(baseUrl)/banks/getAllBanksByNameStateAndBranch?bankName=\(bank)&state=\(state)&city=\(city)&branchName=\(branch)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
+            let url = URL(string: urlpath!)
+            if let jsonData = try? Data(contentsOf: url! as URL, options: []) {
+                let readableJSON = JSON(data: jsonData as Data, options: JSONSerialization.ReadingOptions.mutableContainers, error: nil)
+                //    if readableJSON.exists(){
+                let status = readableJSON["status"].int! as Int
+                let ifsc = readableJSON["banks"][0]["ifsc"].string! as String
+                print(ifsc)
+                delegate?.userDidEnterDetails(info: ifsc)
+            }else{
+                print("check internet")
+            }
+        }else{
+            print("Enter all the fields")
+        }
     }
     
 
