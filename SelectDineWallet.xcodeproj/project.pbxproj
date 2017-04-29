@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		270F1E0E1EB4573300351D4D /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270F1E0D1EB4573300351D4D /* SettingsViewController.swift */; };
 		274EF4B41E8F88D40015FED2 /* AcceptTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274EF4B31E8F88D40015FED2 /* AcceptTabViewController.swift */; };
 		274EF4B91E9264900015FED2 /* ProfileTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274EF4B81E9264900015FED2 /* ProfileTabViewController.swift */; };
 		274EF4BC1E92AB340015FED2 /* PaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274EF4BB1E92AB340015FED2 /* PaymentViewController.swift */; };
@@ -41,6 +42,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		270F1E0D1EB4573300351D4D /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		274EF4B31E8F88D40015FED2 /* AcceptTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AcceptTabViewController.swift; sourceTree = "<group>"; };
 		274EF4B61E8FC6520015FED2 /* bridging-header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "bridging-header.h"; sourceTree = "<group>"; };
 		274EF4B81E9264900015FED2 /* ProfileTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileTabViewController.swift; sourceTree = "<group>"; };
@@ -95,6 +97,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		270F1E0C1EB456E500351D4D /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				270F1E0D1EB4573300351D4D /* SettingsViewController.swift */,
+			);
+			name = Settings;
+			sourceTree = "<group>";
+		};
 		272F861086AF468BE1DAF21D /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -125,6 +135,7 @@
 		274EF4B71E9264690015FED2 /* ProfileTab */ = {
 			isa = PBXGroup;
 			children = (
+				270F1E0C1EB456E500351D4D /* Settings */,
 				274EF4B81E9264900015FED2 /* ProfileTabViewController.swift */,
 				2750CBC81E98D2C100261269 /* UpdateAccViewController.swift */,
 				2750CBDA1E9E26E600261269 /* IFSC */,
@@ -371,6 +382,7 @@
 				27D0F6E81E8788C700DEFB50 /* SignUpViewController.swift in Sources */,
 				27D0F6EB1E8B691D00DEFB50 /* HomeViewController.swift in Sources */,
 				2750CBD91E9E236F00261269 /* BranchTableView.swift in Sources */,
+				270F1E0E1EB4573300351D4D /* SettingsViewController.swift in Sources */,
 				274EF4B91E9264900015FED2 /* ProfileTabViewController.swift in Sources */,
 				27D0F6F51E8E357900DEFB50 /* HomeTabView.swift in Sources */,
 				2750CBCB1E99077D00261269 /* IFSCViewController.swift in Sources */,
