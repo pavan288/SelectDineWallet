@@ -26,41 +26,6 @@ class SettingsViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         // Do any additional setup after loading the view.
     }
     
-  /*  @IBAction func dateFields(_ sender: UITextField) {
-        
-        var datePickerView  : UIDatePicker = UIDatePicker()
-        datePickerView.datePickerMode = UIDatePickerMode.time
-        sender.inputView = datePickerView
-        datePickerView.addTarget(self, action: #selector(handleDatePicker(_sender:)), for: UIControlEvents.valueChanged)
-    }
-    
-    //datepicker methids
-   
-    
-    @IBAction func DoneButton(sender: UIButton) {
-        dateField.resignFirstResponder()
-        //How to make datepicker disappear???
-    }
-    
-    func handleDatePicker(_sender: UIDatePicker) {
-        var timeFormatter = DateFormatter()
-        timeFormatter.dateStyle = .none
-        timeFormatter.timeStyle = .short
-        dateField.text = timeFormatter.string(from: _sender.date)
-    }
-    
-    @IBAction func datePickerPressed(_ sender: Any) {
-        
-        DatePickerDialog().show(title: "DatePicker", doneButtonTitle: "Done", cancelButtonTitle: "Cancel", datePickerMode: .date) {
-            (date) -> Void in
-            self.dateField.text = "\(date)"
-        }
-    }
-   
-    */
-    
-    
-    
     func myTargetFunction(textField: UITextField) {
         // user touch field
         DatePickerDialog().show(title: "DatePicker", doneButtonTitle: "Done", cancelButtonTitle: "Cancel", datePickerMode: .date ) {
