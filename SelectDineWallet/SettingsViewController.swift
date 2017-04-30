@@ -7,9 +7,11 @@
 //
 
 import UIKit
+import DatePickerDialog
 
-class SettingsViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+class SettingsViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
 
+    @IBOutlet var dateField: UITextField!
     @IBOutlet var genderPicker: UIPickerView!
     var gender:String! = "Male"
     var genders = ["Male","Female"]
@@ -18,9 +20,58 @@ class SettingsViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         
         genderPicker.delegate = self
         genderPicker.dataSource = self
+        
+        dateField.addTarget(self, action: #selector(myTargetFunction), for: .touchDown)
 
         // Do any additional setup after loading the view.
     }
+    
+  /*  @IBAction func dateFields(_ sender: UITextField) {
+        
+        var datePickerView  : UIDatePicker = UIDatePicker()
+        datePickerView.datePickerMode = UIDatePickerMode.time
+        sender.inputView = datePickerView
+        datePickerView.addTarget(self, action: #selector(handleDatePicker(_sender:)), for: UIControlEvents.valueChanged)
+    }
+    
+    //datepicker methids
+   
+    
+    @IBAction func DoneButton(sender: UIButton) {
+        dateField.resignFirstResponder()
+        //How to make datepicker disappear???
+    }
+    
+    func handleDatePicker(_sender: UIDatePicker) {
+        var timeFormatter = DateFormatter()
+        timeFormatter.dateStyle = .none
+        timeFormatter.timeStyle = .short
+        dateField.text = timeFormatter.string(from: _sender.date)
+    }
+    
+    @IBAction func datePickerPressed(_ sender: Any) {
+        
+        DatePickerDialog().show(title: "DatePicker", doneButtonTitle: "Done", cancelButtonTitle: "Cancel", datePickerMode: .date) {
+            (date) -> Void in
+            self.dateField.text = "\(date)"
+        }
+    }
+   
+    */
+    
+    
+    
+    func myTargetFunction(textField: UITextField) {
+        // user touch field
+        DatePickerDialog().show(title: "DatePicker", doneButtonTitle: "Done", cancelButtonTitle: "Cancel", datePickerMode: .date ) {
+            (date) -> Void in
+            let dateformater = DateFormatter()
+            dateformater.dateFormat = "dd-MM-YYYY"
+            let selectedDate = dateformater.string(from: date!)
+            self.dateField.text = "\(selectedDate)"
+        }
+    }
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -38,8 +89,14 @@ class SettingsViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         gender = genders[row]
     }
-    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
 
+    @IBAction func savePressed(_ sender: Any) {
+        
+        
+    }
     /*
     // MARK: - Navigation
 
