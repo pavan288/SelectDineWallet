@@ -43,6 +43,8 @@ class IFSCViewController: UIViewController, BankEnteredDelegate, StateEnteredDel
         cityButton.isEnabled = false
         branchButton.isEnabled = false
         
+        self.hideKeyboard()
+        
         // Do any additional setup after loading the view.
     }
 

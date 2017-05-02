@@ -8,6 +8,7 @@
 
 import UIKit
 import DatePickerDialog
+import SwiftyJSON
 
 class SettingsViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
 
@@ -15,25 +16,50 @@ class SettingsViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     @IBOutlet var genderPicker: UIPickerView!
     var gender:String! = "Male"
     var genders = ["Male","Female"]
+    let baseUrl = "http://35.154.46.78:1337"
+    let prefs = UserDefaults.standard
+    
+    
+    @IBOutlet var username: UITextField!
+    @IBOutlet var userEmail: UITextField!
+    @IBOutlet var userPhone: UITextField!
+    
+    @IBOutlet var pancard: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.hideKeyboard()
         genderPicker.delegate = self
         genderPicker.dataSource = self
         
-        dateField.addTarget(self, action: #selector(myTargetFunction), for: .touchDown)
+        dateField.addTarget(self, action: #selector(myTargetFunction), for: .editingDidBegin )
 
         // Do any additional setup after loading the view.
     }
     
+    
     func myTargetFunction(textField: UITextField) {
         // user touch field
-        DatePickerDialog().show(title: "DatePicker", doneButtonTitle: "Done", cancelButtonTitle: "Cancel", datePickerMode: .date ) {
-            (date) -> Void in
-            let dateformater = DateFormatter()
-            dateformater.dateFormat = "dd-MM-YYYY"
-            let selectedDate = dateformater.string(from: date!)
-            self.dateField.text = "\(selectedDate)"
+     DatePickerDialog().show(title: "DatePicker", doneButtonTitle: "Done", cancelButtonTitle: "Cancel", datePickerMode: .date ) {
+     (date) -> Void in
+     let dateformater = DateFormatter()
+     dateformater.dateFormat = "dd-MM-YYYY"
+     let selectedDate = dateformater.string(from: date!)
+     self.dateField.text = "\(selectedDate)"
+     }
+
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        if textField == dateField{
+            DatePickerDialog().show(title: "DatePicker", doneButtonTitle: "Done", cancelButtonTitle: "Cancel", datePickerMode: .date ) {
+                (date) -> Void in
+                let dateformater = DateFormatter()
+                dateformater.dateFormat = "dd-MM-YYYY"
+                let selectedDate = dateformater.string(from: date!)
+                self.dateField.text = "\(selectedDate)"
+            }
+
         }
     }
     
@@ -59,7 +85,34 @@ class SettingsViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     }
 
     @IBAction func savePressed(_ sender: Any) {
+        let uid = prefs.value(forKey: "userID")
+        let urlpath = "\(baseUrl)/user/updateUserProfile?name=\(username.text!)&email=\(userEmail.text!)&mobileNo=\(userPhone.text!)&panCard=\(pancard.text!)&gender=\(gender!)&dob=\(dateField.text!)&id=\(uid!)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
         
+        let url = URL(string: urlpath!)
+        
+        if let jsonData = try? Data(contentsOf: url! as URL, options: []){
+            let readableJSON = JSON(data: jsonData as Data, options: JSONSerialization.ReadingOptions.mutableContainers, error: nil)
+            let status = readableJSON["status"].int! as Int
+           
+            
+            if status == 788{
+                let alert = UIAlertController(title: "Success!", message: "Profile Successfully updated!", preferredStyle: .actionSheet)
+                alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action) in
+                    
+                }))
+                self.present(alert, animated: true)
+                
+            }else{
+                print("There was an error updating the details")
+            }
+            
+        }else{
+            let alert = UIAlertController(title: "No connection!", message: "Please check your connection", preferredStyle: .actionSheet)
+            alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action) in
+                
+            }))
+            self.present(alert, animated: true)
+        }
         
     }
     /*

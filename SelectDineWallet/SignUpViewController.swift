@@ -26,6 +26,7 @@ class SignUpViewController: UIViewController,UITextViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         signUpButton.isEnabled = false
+        self.hideKeyboard()
         // Do any additional setup after loading the view.
         
     }

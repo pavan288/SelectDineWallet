@@ -39,6 +39,8 @@ class BanksTableViewController: UIViewController, UITableViewDelegate, UITableVi
         searchController.hidesNavigationBarDuringPresentation = false
         
         parseJSON()
+        
+        self.hideKeyboard()
 
     }
     

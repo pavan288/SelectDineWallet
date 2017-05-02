@@ -24,7 +24,7 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         firstScreen.fbButtonInit()
-      
+      self.hideKeyboard()
         // Do any additional setup after loading the view.
     }
     

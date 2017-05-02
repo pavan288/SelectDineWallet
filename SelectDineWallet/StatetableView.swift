@@ -39,6 +39,7 @@ class StateTableView: UIViewController, UITableViewDelegate, UITableViewDataSour
         searchController.hidesNavigationBarDuringPresentation = false
         
         parseJSON()
+        self.hideKeyboard()
         
     }
     

@@ -18,7 +18,7 @@ class UpdateAccViewController: UIViewController, IFSCDelegate {
     @IBOutlet var ifscCode: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
-
+self.hideKeyboard()
         // Do any additional setup after loading the view.
     }
 

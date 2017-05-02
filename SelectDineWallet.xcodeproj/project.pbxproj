@@ -21,6 +21,9 @@
 		2750CBD51E9E091100261269 /* StatetableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2750CBD41E9E091000261269 /* StatetableView.swift */; };
 		2750CBD71E9E1E4F00261269 /* CitiyTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2750CBD61E9E1E4F00261269 /* CitiyTableView.swift */; };
 		2750CBD91E9E236F00261269 /* BranchTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2750CBD81E9E236F00261269 /* BranchTableView.swift */; };
+		275A14611EB600370034F19F /* FeedbackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275A14601EB600370034F19F /* FeedbackViewController.swift */; };
+		27C1BA431EB70CDE002073B3 /* TransactionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C1BA421EB70CDD002073B3 /* TransactionTableViewCell.swift */; };
+		27C1BA451EB715CA002073B3 /* transactionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C1BA441EB715CA002073B3 /* transactionModel.swift */; };
 		27D0F6C21E84E1AC00DEFB50 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D0F6C11E84E1AC00DEFB50 /* AppDelegate.swift */; };
 		27D0F6C41E84E1AC00DEFB50 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D0F6C31E84E1AC00DEFB50 /* ViewController.swift */; };
 		27D0F6CA1E84E1AC00DEFB50 /* SelectDineWallet.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 27D0F6C81E84E1AC00DEFB50 /* SelectDineWallet.xcdatamodeld */; };
@@ -57,6 +60,9 @@
 		2750CBD41E9E091000261269 /* StatetableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatetableView.swift; sourceTree = "<group>"; };
 		2750CBD61E9E1E4F00261269 /* CitiyTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CitiyTableView.swift; sourceTree = "<group>"; };
 		2750CBD81E9E236F00261269 /* BranchTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BranchTableView.swift; sourceTree = "<group>"; };
+		275A14601EB600370034F19F /* FeedbackViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackViewController.swift; sourceTree = "<group>"; };
+		27C1BA421EB70CDD002073B3 /* TransactionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionTableViewCell.swift; sourceTree = "<group>"; };
+		27C1BA441EB715CA002073B3 /* transactionModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = transactionModel.swift; sourceTree = "<group>"; };
 		27D0F6BE1E84E1AC00DEFB50 /* SelectDineWallet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SelectDineWallet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		27D0F6C11E84E1AC00DEFB50 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		27D0F6C31E84E1AC00DEFB50 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -135,6 +141,7 @@
 		274EF4B71E9264690015FED2 /* ProfileTab */ = {
 			isa = PBXGroup;
 			children = (
+				275A145F1EB5FFBA0034F19F /* Feedback */,
 				270F1E0C1EB456E500351D4D /* Settings */,
 				274EF4B81E9264900015FED2 /* ProfileTabViewController.swift */,
 				2750CBC81E98D2C100261269 /* UpdateAccViewController.swift */,
@@ -155,6 +162,8 @@
 			isa = PBXGroup;
 			children = (
 				274EF4C21E953EB30015FED2 /* WalletTabViewController.swift */,
+				27C1BA421EB70CDD002073B3 /* TransactionTableViewCell.swift */,
+				27C1BA441EB715CA002073B3 /* transactionModel.swift */,
 			);
 			name = WalletTab;
 			sourceTree = "<group>";
@@ -178,6 +187,14 @@
 				2750CBD81E9E236F00261269 /* BranchTableView.swift */,
 			);
 			name = IFSC;
+			sourceTree = "<group>";
+		};
+		275A145F1EB5FFBA0034F19F /* Feedback */ = {
+			isa = PBXGroup;
+			children = (
+				275A14601EB600370034F19F /* FeedbackViewController.swift */,
+			);
+			name = Feedback;
 			sourceTree = "<group>";
 		};
 		27D0F6B51E84E1AB00DEFB50 = {
@@ -279,6 +296,7 @@
 				TargetAttributes = {
 					27D0F6BD1E84E1AB00DEFB50 = {
 						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = P57823DZ5M;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -369,6 +387,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				27C1BA451EB715CA002073B3 /* transactionModel.swift in Sources */,
 				2750CBD71E9E1E4F00261269 /* CitiyTableView.swift in Sources */,
 				27D0F6E21E857F9100DEFB50 /* LoginViewController.swift in Sources */,
 				274EF4BC1E92AB340015FED2 /* PaymentViewController.swift in Sources */,
@@ -378,6 +397,8 @@
 				274EF4B41E8F88D40015FED2 /* AcceptTabViewController.swift in Sources */,
 				27D0F6CA1E84E1AC00DEFB50 /* SelectDineWallet.xcdatamodeld in Sources */,
 				27D0F6F21E8E330C00DEFB50 /* HomeScrollView.swift in Sources */,
+				275A14611EB600370034F19F /* FeedbackViewController.swift in Sources */,
+				27C1BA431EB70CDE002073B3 /* TransactionTableViewCell.swift in Sources */,
 				274EF4BE1E9372EB0015FED2 /* PayViewController.swift in Sources */,
 				27D0F6E81E8788C700DEFB50 /* SignUpViewController.swift in Sources */,
 				27D0F6EB1E8B691D00DEFB50 /* HomeViewController.swift in Sources */,
@@ -437,6 +458,7 @@
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
@@ -487,6 +509,7 @@
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -514,6 +537,7 @@
 			baseConfigurationReference = 6F1F5244618DEBD0C8E71F10 /* Pods-SelectDineWallet.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = P57823DZ5M;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -533,6 +557,7 @@
 			baseConfigurationReference = 75B92D4249E65320A6D5C6B1 /* Pods-SelectDineWallet.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = P57823DZ5M;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",

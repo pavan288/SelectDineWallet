@@ -30,6 +30,7 @@ class PayViewController: UIViewController {
         }
         
         // Do any additional setup after loading the view.
+        self.hideKeyboard()
     }
 
     override func didReceiveMemoryWarning() {
