@@ -877,10 +877,10 @@
             </objects>
             <point key="canvasLocation" x="3700" y="1155.472263868066"/>
         </scene>
-        <!--View Controller-->
+        <!--Feedback View Controller-->
         <scene sceneID="bUD-Yy-R6d">
             <objects>
-                <viewController id="CI9-9h-gyt" sceneMemberID="viewController">
+                <viewController id="CI9-9h-gyt" customClass="FeedbackViewController" customModule="SelectDineWallet" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="7P6-XD-2LU"/>
                         <viewControllerLayoutGuide type="bottom" id="nrT-hS-BAQ"/>
@@ -900,6 +900,7 @@
                                         <connections>
                                             <action selector="dismissVC:" destination="JcJ-ap-hFj" eventType="touchUpInside" id="4Qu-FQ-UPH"/>
                                             <action selector="dismissVC:" destination="KVW-lV-Aj9" eventType="touchUpInside" id="VNb-R3-8JR"/>
+                                            <action selector="dismissVC:" destination="CI9-9h-gyt" eventType="touchUpInside" id="eLF-K7-WOZ"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -913,7 +914,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="cga-OC-hP3">
                                 <rect key="frame" x="16" y="113" width="343" height="178"/>
                                 <subviews>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Feedback" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="kXY-Tn-xql">
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="kXY-Tn-xql">
                                         <rect key="frame" x="0.0" y="0.0" width="343" height="128"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -925,6 +926,9 @@
                                         <state key="normal" title="SEND">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="sendPressed:" destination="CI9-9h-gyt" eventType="touchUpInside" id="HIM-Mb-euA"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -946,6 +950,9 @@
                             <constraint firstAttribute="trailing" secondItem="tA9-gQ-Uan" secondAttribute="trailing" id="YZV-b5-pS6"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="feedbackText" destination="kXY-Tn-xql" id="Zdj-iM-W1U"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="K2M-yy-K8q" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
