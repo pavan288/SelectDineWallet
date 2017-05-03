@@ -37,6 +37,9 @@ class SettingsViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         // Do any additional setup after loading the view.
     }
     
+    @IBAction func dismissVC(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
     
     func myTargetFunction(textField: UITextField) {
         // user touch field
