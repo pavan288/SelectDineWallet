@@ -23,14 +23,14 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        firstScreen.fbButtonInit()
+    //    firstScreen.fbButtonInit()
       self.hideKeyboard()
         // Do any additional setup after loading the view.
     }
     
     func parseJSON() -> Int{
         var status:Int! = 0
-        let urlpath = "\(baseUrl)/user/login?email=\(username.text!)&password=\(password.text!)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
+        let urlpath = "\(baseUrl)/user/login?email=\(username.text!)&password=\(password.text!)&accessToken=accessToken".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
         let url = URL(string: urlpath!)
 
         if let jsonData = try? Data(contentsOf: url! as URL, options: []){

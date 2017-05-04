@@ -91,7 +91,7 @@ class WalletTabViewController: UIViewController, UITableViewDelegate, UITableVie
     
     func parseJSON(){
         if let uid = prefs.string(forKey: "userID"){
-        let urlpath = "\(baseUrl)/payment/paymenthistory?id=\(uid)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
+        let urlpath = "\(baseUrl)/payment/paymenthistory?id=\(uid)&accessToken=accessToken".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
             let url = URL(string: urlpath!)
             
             if let jsonData = try? Data(contentsOf: url! as URL, options: []){

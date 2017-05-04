@@ -23,51 +23,111 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uo9-Uq-4Al">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SD-Background" translatesAutoresizingMaskIntoConstraints="NO" id="IB4-mj-dMW">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uo9-Uq-4Al">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="V59-lS-q9L" customClass="GIDSignInButton">
-                                        <rect key="frame" x="137" y="469" width="100" height="50"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V59-lS-q9L" customClass="GIDSignInButton">
+                                        <rect key="frame" x="87" y="479" width="200" height="40"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="JQ4-vo-9K6"/>
+                                            <constraint firstAttribute="width" constant="200" id="kM4-jq-mUS"/>
+                                        </constraints>
                                     </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9m1-NL-lJZ">
+                                        <rect key="frame" x="62" y="67" width="250" height="271"/>
+                                        <subviews>
+                                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cT6-v3-kaV">
+                                                <rect key="frame" x="0.0" y="0.0" width="250" height="225"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="225" id="8l8-rd-pB3"/>
+                                                    <constraint firstAttribute="width" constant="250" id="QJp-Ds-QIP"/>
+                                                </constraints>
+                                            </scrollView>
+                                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="4" translatesAutoresizingMaskIntoConstraints="NO" id="1Dd-BN-Eqv">
+                                                <rect key="frame" x="97" y="226" width="57" height="37"/>
+                                                <color key="pageIndicatorTintColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                                <color key="currentPageIndicatorTintColor" red="0.85307604069999998" green="0.25363296270000002" blue="0.16638588909999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </pageControl>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="1Dd-BN-Eqv" firstAttribute="leading" secondItem="9m1-NL-lJZ" secondAttribute="leading" constant="97" id="1PQ-qL-d4z"/>
+                                            <constraint firstAttribute="trailing" secondItem="cT6-v3-kaV" secondAttribute="trailing" id="2t1-ig-yXp"/>
+                                            <constraint firstItem="1Dd-BN-Eqv" firstAttribute="bottom" secondItem="9m1-NL-lJZ" secondAttribute="bottomMargin" id="LeX-Z4-D7f"/>
+                                            <constraint firstItem="cT6-v3-kaV" firstAttribute="leading" secondItem="9m1-NL-lJZ" secondAttribute="leading" id="XBO-el-fny"/>
+                                            <constraint firstAttribute="height" constant="271" id="Xw4-6c-pgD"/>
+                                            <constraint firstAttribute="width" constant="250" id="oEv-ee-cSj"/>
+                                            <constraint firstItem="cT6-v3-kaV" firstAttribute="top" secondItem="9m1-NL-lJZ" secondAttribute="top" id="uUk-ve-GtS"/>
+                                            <constraint firstItem="1Dd-BN-Eqv" firstAttribute="centerX" secondItem="cT6-v3-kaV" secondAttribute="centerX" id="yU4-gG-4ku"/>
+                                        </constraints>
+                                    </view>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="wab-Tt-O49">
+                                        <rect key="frame" x="0.0" y="598" width="375" height="40"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oCe-fm-61I">
+                                                <rect key="frame" x="0.0" y="0.0" width="187.5" height="40"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <state key="normal" title="Login">
+                                                    <color key="titleColor" red="0.24317857623100281" green="0.14266142249107361" blue="0.08562827855348587" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <segue destination="GMm-ze-Ddd" kind="show" id="uRK-6f-tHP"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="13i-fP-z13">
+                                                <rect key="frame" x="187.5" y="0.0" width="187.5" height="40"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <state key="normal" title="Sign Up">
+                                                    <color key="titleColor" red="0.24317857623100281" green="0.14266142249107361" blue="0.08562827855348587" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <segue destination="PgT-Yq-PZm" kind="show" id="iwT-XH-ccQ"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="pG5-XP-WbO"/>
+                                        </constraints>
+                                    </stackView>
                                 </subviews>
-                                <color key="backgroundColor" red="0.94874948263168335" green="0.94517356157302856" blue="0.94494754076004028" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="9m1-NL-lJZ" secondAttribute="trailing" constant="63" id="1HJ-yU-sm4"/>
+                                    <constraint firstItem="V59-lS-q9L" firstAttribute="centerX" secondItem="uo9-Uq-4Al" secondAttribute="centerX" id="5rR-HG-Zlx"/>
+                                    <constraint firstItem="wab-Tt-O49" firstAttribute="centerX" secondItem="V59-lS-q9L" secondAttribute="centerX" id="9kk-iM-Opm"/>
+                                    <constraint firstItem="9m1-NL-lJZ" firstAttribute="leading" secondItem="uo9-Uq-4Al" secondAttribute="leading" constant="62" id="PIY-E6-elE"/>
+                                    <constraint firstItem="9m1-NL-lJZ" firstAttribute="top" secondItem="uo9-Uq-4Al" secondAttribute="top" constant="67" id="irR-19-L3x"/>
+                                    <constraint firstAttribute="bottom" secondItem="V59-lS-q9L" secondAttribute="bottom" constant="148" id="ldN-OY-jkD"/>
+                                    <constraint firstItem="wab-Tt-O49" firstAttribute="top" secondItem="V59-lS-q9L" secondAttribute="bottom" constant="79" id="ojr-Ai-F4m"/>
+                                    <constraint firstItem="wab-Tt-O49" firstAttribute="leading" secondItem="uo9-Uq-4Al" secondAttribute="leading" id="xuJ-Hn-qUN"/>
+                                </constraints>
                             </view>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="120" translatesAutoresizingMaskIntoConstraints="NO" id="wab-Tt-O49">
-                                <rect key="frame" x="73" y="593" width="230" height="30"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oCe-fm-61I">
-                                        <rect key="frame" x="0.0" y="0.0" width="55" height="30"/>
-                                        <state key="normal" title="Login"/>
-                                        <connections>
-                                            <segue destination="GMm-ze-Ddd" kind="show" id="nmL-Eg-e0O"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="13i-fP-z13">
-                                        <rect key="frame" x="175" y="0.0" width="55" height="30"/>
-                                        <state key="normal" title="Sign Up"/>
-                                        <connections>
-                                            <segue destination="PgT-Yq-PZm" kind="show" id="iwT-XH-ccQ"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                            </stackView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="wab-Tt-O49" secondAttribute="bottom" constant="44" id="4wN-EO-Zo8"/>
-                            <constraint firstItem="wab-Tt-O49" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="UYH-MO-d7I"/>
+                            <constraint firstItem="IB4-mj-dMW" firstAttribute="leading" secondItem="uo9-Uq-4Al" secondAttribute="leading" id="Gzc-8h-Cgo"/>
+                            <constraint firstItem="IB4-mj-dMW" firstAttribute="trailing" secondItem="uo9-Uq-4Al" secondAttribute="trailing" id="HyP-Xg-KRE"/>
+                            <constraint firstItem="IB4-mj-dMW" firstAttribute="top" secondItem="uo9-Uq-4Al" secondAttribute="top" id="LCa-bW-uBV"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="uo9-Uq-4Al" secondAttribute="bottom" id="MB0-TD-42Y"/>
+                            <constraint firstItem="uo9-Uq-4Al" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="MJv-Lm-SW8"/>
+                            <constraint firstAttribute="trailing" secondItem="uo9-Uq-4Al" secondAttribute="trailing" id="ZJN-Rq-v0Q"/>
+                            <constraint firstItem="IB4-mj-dMW" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="gB2-ed-4RD"/>
+                            <constraint firstItem="uo9-Uq-4Al" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="lIX-DM-hab"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="GSignIn" destination="V59-lS-q9L" id="zT3-P1-kVQ"/>
+                        <outlet property="featurePageControl" destination="1Dd-BN-Eqv" id="ANK-Nu-LE3"/>
+                        <outlet property="homeScrollView" destination="cT6-v3-kaV" id="AqR-gf-RPd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="809" y="142"/>
+            <point key="canvasLocation" x="808.79999999999995" y="141.67916041979012"/>
         </scene>
         <!--SelectDIne-->
         <scene sceneID="nGJ-ed-a5B">
@@ -769,7 +829,7 @@
                                                         <rect key="frame" x="0.0" y="28" width="359" height="98"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="3vs-6D-u8l" id="y09-0X-Vmd">
-                                                            <rect key="frame" x="0.0" y="0.0" width="359" height="98"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="359" height="97"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <subviews>
                                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Add-money-wallet-Brown" translatesAutoresizingMaskIntoConstraints="NO" id="HGX-wH-pTT">
@@ -1463,7 +1523,7 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="358" height="67.5"/>
                                                         <subviews>
                                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logout" translatesAutoresizingMaskIntoConstraints="NO" id="rKP-V1-Xlg">
-                                                                <rect key="frame" x="0.0" y="10.5" width="53" height="46.5"/>
+                                                                <rect key="frame" x="0.0" y="10" width="53" height="47.5"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" constant="53" id="8Ib-zd-Vfy"/>
                                                                 </constraints>
@@ -2109,7 +2169,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Q28-6J-vvW" id="Hap-Uc-3hT">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Bank Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jhn-ge-Gyn">
@@ -2408,7 +2468,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="nCN-Zh-6mK" id="vVD-yJ-Lt3">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="State Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FyS-9x-jyb">
@@ -2488,7 +2548,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0Bg-Lk-I6r" id="tbT-Wr-mmx">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="City Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b58-ar-Y1Q">
@@ -2569,7 +2629,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="uok-ih-ZkI" id="Gv3-4f-nc4">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Branch Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dOC-v7-yp9">
@@ -2623,6 +2683,7 @@
         <image name="Pay-d" width="23" height="28"/>
         <image name="Profile" width="23" height="28"/>
         <image name="QR-Code-Brown" width="104" height="184"/>
+        <image name="SD-Background" width="1816" height="3084"/>
         <image name="SD-Logo" width="309" height="218"/>
         <image name="SD-Mob-icon" width="140" height="256"/>
         <image name="SD-QR-Code" width="28" height="50"/>
@@ -2635,8 +2696,8 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="fl7-12-IP8"/>
+        <segue reference="iwT-XH-ccQ"/>
         <segue reference="RCW-G6-Lgd"/>
-        <segue reference="NgZ-rc-CtR"/>
-        <segue reference="zbI-zd-aYm"/>
+        <segue reference="uRK-6f-tHP"/>
     </inferredMetricsTieBreakers>
 </document>

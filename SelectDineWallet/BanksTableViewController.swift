@@ -45,7 +45,7 @@ class BanksTableViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     func parseJSON(){
-        let urlpath = "\(baseUrl)/banks/getAllBanksByName".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
+        let urlpath = "\(baseUrl)/banks/getAllBanksByName&accessToken=accessToken".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
         let url = URL(string: urlpath!)
         if let jsonData = try? Data(contentsOf: url! as URL, options: []) {
             let readableJSON = JSON(data: jsonData as Data, options: JSONSerialization.ReadingOptions.mutableContainers, error: nil)

@@ -30,7 +30,7 @@ class AcceptTabViewController: UIViewController,UIWebViewDelegate {
     func parseJSON(){
         let uid = prefs.string(forKey: "userID")
         if prefs.string(forKey: "qrcodestirng") == nil{
-            if let urlpath = "\(baseUrl)/qrcode/generateqrcodeforios?id=\(uid!)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed){
+            if let urlpath = "\(baseUrl)/qrcode/generateqrcodeforios?id=\(uid!)&accessToken=accessToken".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed){
         let url = URL(string: urlpath)
         
                 if let jsonData = try? Data(contentsOf: url! as URL, options: []){
