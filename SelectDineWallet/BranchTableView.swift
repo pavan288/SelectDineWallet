@@ -47,7 +47,7 @@ class BranchTableView: UIViewController, UITableViewDelegate, UITableViewDataSou
     }
     
     func parseJSON(){
-        let urlpath = "\(baseUrl)/banks/getAllBranchesByNameAndState?bankName=\(test)&state=\(test1)&city=\(test3)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
+        let urlpath = "\(baseUrl)/banks/getAllBranchesByNameAndState?bankName=\(test)&state=\(test1)&city=\(test3)&accessToken=accessToken".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
         let url = URL(string: urlpath!)
         if let jsonData = try? Data(contentsOf: url! as URL, options: []) {
             let readableJSON = JSON(data: jsonData as Data, options: JSONSerialization.ReadingOptions.mutableContainers, error: nil)
@@ -59,6 +59,12 @@ class BranchTableView: UIViewController, UITableViewDelegate, UITableViewDataSou
             }
             
             NumberOfRows = readableJSON["banks"].count as Int
+        }else{
+            let alert = UIAlertController(title: "Error!", message: "Could not retrieve branches", preferredStyle: .actionSheet)
+            alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action) in
+                
+            }))
+            self.present(alert, animated: true)
         }
         filteredBranches = branches
     }

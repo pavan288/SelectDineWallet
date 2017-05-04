@@ -39,7 +39,7 @@ class SignUpViewController: UIViewController,UITextViewDelegate {
     func parseJSON(){
         
         let mobile = Int(phone.text!)
-        let urlpath = "http://35.154.46.78:1337/user/signup?name=\(name.text!)&email=\(email.text!)&password=\(password.text!)&mobileNo=\(mobile!)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
+        let urlpath = "http://35.154.46.78:1337/user/signup?name=\(name.text!)&email=\(email.text!)&password=\(password.text!)&mobileNo=\(mobile!)&accessToken=accessToken".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
         let url = URL(string: urlpath!)
         
             let jsonData = try? Data(contentsOf: url! as URL, options: [])
@@ -64,7 +64,7 @@ class SignUpViewController: UIViewController,UITextViewDelegate {
 
     @IBAction func verifyPhoneNumber(_ sender: Any) {
         if let mobile = Int(phone.text!){
-        let urlpath = "http://35.154.46.78:1337/otp/generateOtpForMobileVerificationDuringSignup?mobileNo=\(mobile)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
+        let urlpath = "http://35.154.46.78:1337/otp/generateOtpForMobileVerificationDuringSignup?mobileNo=\(mobile)&accessToken=accessToken".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
         let url = URL(string: urlpath!)
         
         let jsonData = try? Data(contentsOf: url! as URL, options: [])
@@ -85,7 +85,7 @@ class SignUpViewController: UIViewController,UITextViewDelegate {
         alert.addAction(UIAlertAction(title: "Ok", style: .default) { action in
             let otpValue = alert.textFields![0].text!
             print(otpValue)
-            let urlpath = "http://35.154.46.78:1337/otp/verifyMobileNoWhileSignup?mobileNo=\(mobile)&otp=\(otpValue)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
+            let urlpath = "http://35.154.46.78:1337/otp/verifyMobileNoWhileSignup?mobileNo=\(mobile)&otp=\(otpValue)&accessToken=accessToken".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
             let url = URL(string: urlpath!)
             let jsonData = try? Data(contentsOf: url! as URL, options: [])
             let readableJSON = JSON(data: jsonData! as Data, options: JSONSerialization.ReadingOptions.mutableContainers, error: nil)

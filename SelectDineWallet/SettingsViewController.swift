@@ -89,7 +89,7 @@ class SettingsViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
 
     @IBAction func savePressed(_ sender: Any) {
         let uid = prefs.value(forKey: "userID")
-        let urlpath = "\(baseUrl)/user/updateUserProfile?name=\(username.text!)&email=\(userEmail.text!)&mobileNo=\(userPhone.text!)&panCard=\(pancard.text!)&gender=\(gender!)&dob=\(dateField.text!)&id=\(uid!)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
+        let urlpath = "\(baseUrl)/user/updateUserProfile?name=\(username.text!)&email=\(userEmail.text!)&mobileNo=\(userPhone.text!)&panCard=\(pancard.text!)&gender=\(gender!)&dob=\(dateField.text!)&id=\(uid!)&accessToken=accessToken".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
         
         let url = URL(string: urlpath!)
         
@@ -107,10 +107,16 @@ class SettingsViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
                 
             }else{
                 print("There was an error updating the details")
+                    let alert = UIAlertController(title: "Error!", message: "There was an error updating the details", preferredStyle: .actionSheet)
+                    alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action) in
+                        
+                    }))
+                    self.present(alert, animated: true)
+                
             }
             
         }else{
-            let alert = UIAlertController(title: "No connection!", message: "Please check your connection", preferredStyle: .actionSheet)
+            let alert = UIAlertController(title: "No connection!", message: "Unable to connect to the server", preferredStyle: .actionSheet)
             alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action) in
                 
             }))

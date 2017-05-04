@@ -122,7 +122,7 @@ class IFSCViewController: UIViewController, BankEnteredDelegate, StateEnteredDel
     
     func parseJSON(){
         if let bank = bankName.text , let state = stateName.text, let city = cityName.text, let branch = branchName.text{
-            let urlpath = "\(baseUrl)/banks/getAllBanksByNameStateAndBranch?bankName=\(bank)&state=\(state)&city=\(city)&branchName=\(branch)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
+            let urlpath = "\(baseUrl)/banks/getAllBanksByNameStateAndBranch?bankName=\(bank)&state=\(state)&city=\(city)&branchName=\(branch)&accessToken=accessToken".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
             let url = URL(string: urlpath!)
             if let jsonData = try? Data(contentsOf: url! as URL, options: []) {
                 let readableJSON = JSON(data: jsonData as Data, options: JSONSerialization.ReadingOptions.mutableContainers, error: nil)

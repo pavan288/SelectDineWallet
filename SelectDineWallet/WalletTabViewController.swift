@@ -140,12 +140,27 @@ class WalletTabViewController: UIViewController, UITableViewDelegate, UITableVie
 
                 }else{
                     print("Couldnt fetch transaction details")
+                    let alert = UIAlertController(title: "Uh Oh!", message: "Couldnt fetch transaction details", preferredStyle: .actionSheet)
+                    alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action) in
+                        
+                    }))
+                    self.present(alert, animated: true)
                 }
             }else{
                 print("could not parse JSON")
+                let alert = UIAlertController(title: "No connection!", message: "Unable to connect to our servers, please try again later", preferredStyle: .actionSheet)
+                alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action) in
+                    
+                }))
+                self.present(alert, animated: true)
             }
         }else{
             print("could not fetch user")
+            let alert = UIAlertController(title: "Oops!", message: "Have you signed up yet?", preferredStyle: .actionSheet)
+            alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action) in
+                
+            }))
+            self.present(alert, animated: true)
         }
     }
 

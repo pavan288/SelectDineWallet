@@ -33,7 +33,7 @@ self.hideKeyboard()
     
     
     @IBAction func savePressed(_ sender: Any) {
-        let urlpath = "\(baseUrl)/account/addAccountDetails?id=\(userId!)&accountNo=\(accNumber.text!)&ifscCode=\(ifscCode.text!)&accountHolderName=\(accHolderName.text!)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
+        let urlpath = "\(baseUrl)/account/addAccountDetails?id=\(userId!)&accountNo=\(accNumber.text!)&ifscCode=\(ifscCode.text!)&accountHolderName=\(accHolderName.text!)&accessToken=accessToken".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
         let url = URL(string: urlpath!)
         
         if let jsonData = try? Data(contentsOf: url! as URL, options: []){
@@ -62,7 +62,11 @@ self.hideKeyboard()
                 self.present(alert, animated: true)
             }
         }else{
-            
+            let alert = UIAlertController(title: "Error!", message: "Unable to connect to our servers right now", preferredStyle: .actionSheet)
+            alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action) in
+                
+            }))
+            self.present(alert, animated: true)
         }
         
         }

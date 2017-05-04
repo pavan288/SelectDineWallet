@@ -34,7 +34,7 @@ class FeedbackViewController: UIViewController {
     
     @IBAction func sendPressed(_ sender: Any) {
         let uid = prefs.value(forKey: "userID")
-        let urlpath = "\(baseUrl)/feedback/createFeedback?id=\(uid)&feedback=\(feedbackText.text!)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
+        let urlpath = "\(baseUrl)/feedback/createFeedback?id=\(uid)&feedback=\(feedbackText.text!)&accessToken=accessToken".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
         let url = URL(string: urlpath!)
         
         if let jsonData = try? Data(contentsOf: url! as URL, options: []){
@@ -57,6 +57,13 @@ class FeedbackViewController: UIViewController {
             }
         }else{
             print("could not connect")
+            
+            let alert = UIAlertController(title: "Error!", message: "Unable to connect to our server", preferredStyle: .actionSheet)
+            alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action) in
+                
+            }))
+            self.present(alert, animated: true)
+
         }
         
     }

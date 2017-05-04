@@ -57,7 +57,13 @@ class BanksTableViewController: UIViewController, UITableViewDelegate, UITableVi
                 }
             
             NumberOfRows = readableJSON["banks"].count as Int
-    }
+        }else{
+            let alert = UIAlertController(title: "Error!", message: "Could not retrieve banks", preferredStyle: .actionSheet)
+            alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action) in
+                
+            }))
+            self.present(alert, animated: true)
+        }
         filteredBanks = banks
     }
     
