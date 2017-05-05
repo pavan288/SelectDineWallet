@@ -14,11 +14,12 @@ class WalletTabViewController: UIViewController, UITableViewDelegate, UITableVie
     let prefs = UserDefaults.standard
     @IBOutlet var segementedControl: UISegmentedControl!
     @IBOutlet var transactionTableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        transactionTableView.dataSource = self
-        transactionTableView.delegate = self
+        self.transactionTableView.dataSource = self
+        self.transactionTableView.delegate = self
         // Do any additional setup after loading the view.
         parseJSON()
     }
@@ -61,27 +62,35 @@ class WalletTabViewController: UIViewController, UITableViewDelegate, UITableVie
                 return parsedDate
             }
         }
-        
         // Nothing worked!
         return Date()
     }
+    
     @IBAction func segmentChanged(_ sender: Any) {
         switch segementedControl.selectedSegmentIndex
         {
         case 0:
             segmentFlag = 0
+            allTransactions.removeAll()
+            parseJSON()
              transactionTableView.reloadData()
             break
         case 1:
             segmentFlag = 1
+            paidTransactions.removeAll()
+            parseJSON()
              transactionTableView.reloadData()
             break
         case 2:
             segmentFlag = 2
+            receivedTransactions.removeAll()
+            parseJSON()
              transactionTableView.reloadData()
             break
         case 3:
             segmentFlag = 3
+            addedTransactions.removeAll()
+            parseJSON()
              transactionTableView.reloadData()
             break
         default:
@@ -191,6 +200,8 @@ class WalletTabViewController: UIViewController, UITableViewDelegate, UITableVie
         cell.transactionDate.text = allTransactions[indexPath.row].transactionDate
         cell.transactionId.text = allTransactions[indexPath.row].transactionId
         cell.transactionTime.text = allTransactions[indexPath.row].transactionTime
+           
+            
         }else if segmentFlag == 1{
             cell.extra.text = paidTransactions[indexPath.row].extra
             cell.transactionAmt.text = String(paidTransactions[indexPath.row].transactionAmt)
@@ -198,15 +209,13 @@ class WalletTabViewController: UIViewController, UITableViewDelegate, UITableVie
             cell.transactionId.text = paidTransactions[indexPath.row].transactionId
             cell.transactionTime.text = paidTransactions[indexPath.row].transactionTime
             
-          //  transactionTableView.reloadData()
-            
         }else if segmentFlag == 2{
             cell.extra.text = receivedTransactions[indexPath.row].extra
             cell.transactionAmt.text = String(receivedTransactions[indexPath.row].transactionAmt)
             cell.transactionDate.text = receivedTransactions[indexPath.row].transactionDate
             cell.transactionId.text = receivedTransactions[indexPath.row].transactionId
             cell.transactionTime.text = receivedTransactions[indexPath.row].transactionTime
-           // transactionTableView.reloadData()
+            
             
         }else if segmentFlag == 3{
             cell.extra.text = addedTransactions[indexPath.row].extra
@@ -214,7 +223,7 @@ class WalletTabViewController: UIViewController, UITableViewDelegate, UITableVie
             cell.transactionDate.text = addedTransactions[indexPath.row].transactionDate
             cell.transactionId.text = addedTransactions[indexPath.row].transactionId
             cell.transactionTime.text = addedTransactions[indexPath.row].transactionTime
-           // transactionTableView.reloadData()
+            
             
         }
         

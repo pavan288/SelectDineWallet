@@ -49,11 +49,17 @@ class LoginViewController: UIViewController {
         prefs.set(name, forKey: "name")
         print("\(status):\(message)")
             }
-        let alert = UIAlertController(title: "Login", message: "\(message)", preferredStyle: .actionSheet)
+     /*   let alert = UIAlertController(title: "Login", message: "\(message)", preferredStyle: .actionSheet)
         alert.addAction(UIAlertAction(title: "Ok", style: .default) { action in
             // perhaps use action.title here
-        })
-    }
+        }) */
+        }else{
+            let alert = UIAlertController(title: "Opps!", message: "Unable to connect to our servers", preferredStyle: .actionSheet)
+            alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: {
+                (action) in
+            }))
+            self.present(alert,animated: true)
+        }
         return status
         
     }

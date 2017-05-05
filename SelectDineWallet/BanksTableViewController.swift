@@ -45,7 +45,7 @@ class BanksTableViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     func parseJSON(){
-        let urlpath = "\(baseUrl)/banks/getAllBanksByName&accessToken=accessToken".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
+        let urlpath = "\(baseUrl)/banks/getAllBanksByName".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
         let url = URL(string: urlpath!)
         if let jsonData = try? Data(contentsOf: url! as URL, options: []) {
             let readableJSON = JSON(data: jsonData as Data, options: JSONSerialization.ReadingOptions.mutableContainers, error: nil)
@@ -102,14 +102,12 @@ class BanksTableViewController: UIViewController, UITableViewDelegate, UITableVi
         return cell
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
         let currentCell = tableView.cellForRow(at: indexPath)! as! BankTableViewCell
         print(currentCell.bankName!.text!)
       delegate?.userDidEnterBank(info: currentCell.bankName!.text!)
         dismiss(animated: true, completion: nil)
-
     }
-
 
     @IBAction func dismissVC(_ sender: Any) {
         dismiss(animated: true, completion: nil)
