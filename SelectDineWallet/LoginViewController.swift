@@ -30,7 +30,7 @@ class LoginViewController: UIViewController {
     
     func parseJSON() -> Int{
         var status:Int! = 0
-        let urlpath = "\(baseUrl)/user/login?email=\(username.text!)&password=\(password.text!)&accessToken=accessToken".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
+        let urlpath = "\(baseUrl)/user/authenticate?email=\(username.text!)&password=\(password.text!)&accessToken=accessToken".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
         let url = URL(string: urlpath!)
 
         if let jsonData = try? Data(contentsOf: url! as URL, options: []){

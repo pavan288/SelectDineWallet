@@ -29,6 +29,7 @@ self.hideKeyboard()
     
     func userDidEnterDetails(info: String) {
         self.ifscCode.text = info
+        dismiss(animated: true, completion: nil)
     }
     
     

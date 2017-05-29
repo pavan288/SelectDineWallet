@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		270F1E0E1EB4573300351D4D /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270F1E0D1EB4573300351D4D /* SettingsViewController.swift */; };
+		271686CE1EBC39D600D6963A /* TransactionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 271686CD1EBC39D500D6963A /* TransactionViewController.swift */; };
+		271686D01EBC3F9100D6963A /* PassbookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 271686CF1EBC3F8F00D6963A /* PassbookViewController.swift */; };
 		274EF4B41E8F88D40015FED2 /* AcceptTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274EF4B31E8F88D40015FED2 /* AcceptTabViewController.swift */; };
 		274EF4B91E9264900015FED2 /* ProfileTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274EF4B81E9264900015FED2 /* ProfileTabViewController.swift */; };
 		274EF4BC1E92AB340015FED2 /* PaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274EF4BB1E92AB340015FED2 /* PaymentViewController.swift */; };
@@ -48,6 +50,8 @@
 
 /* Begin PBXFileReference section */
 		270F1E0D1EB4573300351D4D /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		271686CD1EBC39D500D6963A /* TransactionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionViewController.swift; sourceTree = "<group>"; };
+		271686CF1EBC3F8F00D6963A /* PassbookViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PassbookViewController.swift; sourceTree = "<group>"; };
 		274EF4B31E8F88D40015FED2 /* AcceptTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AcceptTabViewController.swift; sourceTree = "<group>"; };
 		274EF4B61E8FC6520015FED2 /* bridging-header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "bridging-header.h"; sourceTree = "<group>"; };
 		274EF4B81E9264900015FED2 /* ProfileTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileTabViewController.swift; sourceTree = "<group>"; };
@@ -150,6 +154,7 @@
 				274EF4B81E9264900015FED2 /* ProfileTabViewController.swift */,
 				2750CBC81E98D2C100261269 /* UpdateAccViewController.swift */,
 				2750CBDA1E9E26E600261269 /* IFSC */,
+				271686CF1EBC3F8F00D6963A /* PassbookViewController.swift */,
 			);
 			name = ProfileTab;
 			sourceTree = "<group>";
@@ -168,6 +173,7 @@
 				274EF4C21E953EB30015FED2 /* WalletTabViewController.swift */,
 				27C1BA421EB70CDD002073B3 /* TransactionTableViewCell.swift */,
 				27C1BA441EB715CA002073B3 /* transactionModel.swift */,
+				271686CD1EBC39D500D6963A /* TransactionViewController.swift */,
 			);
 			name = WalletTab;
 			sourceTree = "<group>";
@@ -406,6 +412,7 @@
 				2750CBD71E9E1E4F00261269 /* CitiyTableView.swift in Sources */,
 				27D0F6E21E857F9100DEFB50 /* LoginViewController.swift in Sources */,
 				274EF4BC1E92AB340015FED2 /* PaymentViewController.swift in Sources */,
+				271686CE1EBC39D600D6963A /* TransactionViewController.swift in Sources */,
 				27D0F6C41E84E1AC00DEFB50 /* ViewController.swift in Sources */,
 				27D0F6C21E84E1AC00DEFB50 /* AppDelegate.swift in Sources */,
 				274EF4C31E953EB30015FED2 /* WalletTabViewController.swift in Sources */,
@@ -417,6 +424,7 @@
 				27C1BA431EB70CDE002073B3 /* TransactionTableViewCell.swift in Sources */,
 				274EF4BE1E9372EB0015FED2 /* PayViewController.swift in Sources */,
 				27D0F6E81E8788C700DEFB50 /* SignUpViewController.swift in Sources */,
+				271686D01EBC3F9100D6963A /* PassbookViewController.swift in Sources */,
 				27D0F6EB1E8B691D00DEFB50 /* HomeViewController.swift in Sources */,
 				2750CBD91E9E236F00261269 /* BranchTableView.swift in Sources */,
 				270F1E0E1EB4573300351D4D /* SettingsViewController.swift in Sources */,

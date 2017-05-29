@@ -18,10 +18,10 @@ class ProfileTabViewController: UIViewController{
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        let profilePhone = prefs.value(forKey: "phone") as! Int?
-        let profileName = prefs.value(forKey: "name") as! String?
-        phone.text = String(describing: profilePhone!)
-        name.text = profileName
+       if let profilePhone = prefs.value(forKey: "phone") as! Int?,
+        let profileName = prefs.value(forKey: "name") as! String?{
+        phone.text = String(describing: profilePhone)
+        name.text = profileName}
     }
 
     override func didReceiveMemoryWarning() {

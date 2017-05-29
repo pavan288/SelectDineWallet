@@ -116,7 +116,7 @@ class IFSCViewController: UIViewController, BankEnteredDelegate, StateEnteredDel
     func userDidEnterBranch(info: String) {
         self.branchName.text = info
         parseJSON()
-        
+//        dismiss(animated: true, completion: nil)
     }
     
     

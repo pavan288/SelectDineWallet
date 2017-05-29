@@ -1,19 +1,18 @@
 //
-//  HomeViewController.swift
+//  PassbookViewController.swift
 //  SelectDineWallet
 //
-//  Created by Pavan Powani on 29/03/17.
+//  Created by Pavan Powani on 05/05/17.
 //  Copyright © 2017 Pavan Powani. All rights reserved.
 //
 
 import UIKit
 
-class HomeViewController: UITabBarController {
+class PassbookViewController: UIViewController {
 
-    @IBOutlet var homeTab: UITabBar!
     override func viewDidLoad() {
         super.viewDidLoad()
-       self.tabBarController?.selectedIndex=2
+
         // Do any additional setup after loading the view.
     }
 
@@ -21,16 +20,10 @@ class HomeViewController: UITabBarController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-  /*  var freshLaunch = true
-    override func viewWillAppear(_ animated: Bool) {
-        if freshLaunch == true {
-            freshLaunch = false
-//            print(self.homeTab.selectedItem!)
-            self.tabBarController?.selectedIndex = 2 // 5th tab
-        }
-    }*/
     
-    
+    @IBAction func dismissVC(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
 
     /*
     // MARK: - Navigation

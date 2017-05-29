@@ -9,6 +9,7 @@
 import UIKit
 import FBSDKLoginKit
 import GoogleSignIn
+import SwiftyJSON
 
 class ViewController: UIViewController, FBSDKLoginButtonDelegate, GIDSignInUIDelegate,UIScrollViewDelegate {
 
@@ -19,6 +20,9 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate, GIDSignInUIDel
     let feature3 = ["image":"Pay-Online"]
     let feature4 = ["image":"Transfer-to-bank-1"]
     var featureArray = [Dictionary<String,String>]()
+    var dict : [String : AnyObject]!
+    var avatarUrl: String! = ""
+    var name: String! = ""
     
     @IBOutlet var GSignIn: UIView!
     let prefs = UserDefaults.standard
@@ -83,8 +87,32 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate, GIDSignInUIDel
             print("Error logging in:\(error)")
             return
         }else{
-        print("Successfully logged in")
-        presentHome()
+            FBSDKGraphRequest.init(graphPath: "me", parameters: ["fields":"first_name, last_name, picture.type(large),email"]).start { (connection, result, error) -> Void in
+                
+                if (error == nil){
+                    self.dict = result as! [String : AnyObject]
+                   // print(result!)
+                    print(self.dict)
+                 /*   for (key, value) in self.dict {
+                        print("\(key) -> \(value)")
+                    }
+                     print((self.dict["picture"]!["data"]!! as! [String : AnyObject])["url"]!)*/
+                    
+                    self.avatarUrl = (self.dict["picture"]!["data"]!! as! [String : AnyObject])["url"]! as? String
+//                    print(self.avatarUrl)
+                    self.prefs.set(self.avatarUrl, forKey: "avatar")
+                    self.prefs.set(self.dict["email"], forKey: "email")
+                    self.name = self.dict["first_name"]! as? String
+                    
+                    var loginStatus:Int = self.parseJSON()
+                    if loginStatus==1{
+                self.presentHome()
+                    }
+                    print("Successfully logged in")
+                }
+            
+        
+    }
     }
     }
    
@@ -92,7 +120,41 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate, GIDSignInUIDel
         print("Successfully logged out")
     }
     //end of methods for facebook login
-     
+    
+    func parseJSON() -> Int{
+        var status:Int = 0
+        let urlpath = "http://35.154.46.78:1337/user/social?email=pjp288@gmail.com&name=Pavan&avatarUrl=\(avatarUrl)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
+        let url = URL(string: urlpath!)
+        
+        if let jsonData = try? Data(contentsOf: url! as URL, options: []){
+            let readableJSON = JSON(data: jsonData as Data, options: JSONSerialization.ReadingOptions.mutableContainers, error: nil)
+            
+            let message = readableJSON["message"].string! as String
+             status = readableJSON["status"].int! as Int
+            
+            let email = readableJSON["user"]["email"].string! as String
+            let phone = readableJSON["user"]["mobileNo"].int! as Int
+            let userID = readableJSON["user"]["id"].string! as String
+            let name = readableJSON["user"]["name"].string! as String
+            
+            if (status == 1){
+                self.prefs.set(name, forKey: "name")
+                self.prefs.set(email, forKey: "email")
+                self.prefs.set(phone, forKey: "phone")
+                self.prefs.set(userID, forKey: "userID")
+
+            }else{
+               let alert = UIAlertController(title: "Oops!", message: "Error logging in", preferredStyle: .actionSheet)
+                alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action) in
+                    
+                }))
+                self.present(alert, animated: true, completion: nil)
+                
+            }
+        }
+    return status
+    }
+    
 }
 extension UIViewController
 {

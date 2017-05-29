@@ -21,6 +21,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+       
+        
         var configureError: NSError?
         GGLContext.sharedInstance().configureWithError(&configureError)
         assert(configureError == nil, "Error configuring Google services: \(configureError)")
@@ -45,11 +47,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func signIn(signIn: GIDSignIn!, didSignInForUser user: GIDGoogleUser!,
                 withError error: NSError!) {
         if (error == nil) {
-          return
+          let email = user.profile.email
+            let name = user.profile.name
+            
+            let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let appDelegate = UIApplication.shared.delegate! as! AppDelegate
+            let initialViewController = storyboard.instantiateViewController(withIdentifier: "Home") as! ViewController
+            appDelegate.window?.rootViewController = initialViewController
+//            appDelegate.window?.makeKeyAndVisible()
+            
         } else {
             print("\(error.localizedDescription)")
         }
     }
+    
     func signIn(signIn: GIDSignIn!, didDisconnectWithUser user:GIDGoogleUser!,
                 withError error: NSError!) {
         // Perform any operations when the user disconnects from app here.
