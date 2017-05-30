@@ -11,7 +11,7 @@ import FBSDKLoginKit
 import GoogleSignIn
 import SwiftyJSON
 
-class ViewController: UIViewController, FBSDKLoginButtonDelegate, GIDSignInUIDelegate,UIScrollViewDelegate {
+class ViewController: UIViewController, FBSDKLoginButtonDelegate, GIDSignInUIDelegate, GIDSignInDelegate, UIScrollViewDelegate {
 
     @IBOutlet var homeScrollView: UIScrollView!
     let feature1 = ["image":"Accept-Money"]
@@ -30,7 +30,8 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate, GIDSignInUIDel
     override func viewDidLoad() {
         super.viewDidLoad()
         GIDSignIn.sharedInstance().uiDelegate = self
-        GIDSignIn.sharedInstance().signInSilently()
+        GIDSignIn.sharedInstance().delegate = self
+
         fbButtonInit()
         
         featureArray = [feature1,feature2,feature3,feature4]
@@ -45,6 +46,53 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate, GIDSignInUIDel
         }
         
     }
+
+    //google sign in methods
+    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
+        if (error == nil) {
+            // Perform any operations on signed in user here.
+            let userId = user.userID                  // For client-side use only!
+            let idToken = user.authentication.idToken // Safe to send to the server
+            let fullName = user.profile.name
+            let givenName = user.profile.givenName
+            let familyName = user.profile.familyName
+            let email = user.profile.email
+            if user.profile.hasImage{
+                self.avatarUrl = String(describing: user.profile.imageURL(withDimension: 200))
+            }
+             print("Welcome: ,\(userId!), \(fullName!), \(avatarUrl!), \(email!)")
+            
+            self.prefs.set(self.avatarUrl, forKey: "avatar")
+            self.prefs.set(email, forKey: "socialEmail")
+            self.name = name! as? String
+            
+            let loginStatus:Int = self.parseJSON()
+            if loginStatus==1{
+                self.presentHome()
+                print("Successfully logged in via google")
+            }else{
+                let alert = UIAlertController(title: "Oops!", message: "Error logging in", preferredStyle: .actionSheet)
+                alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action) in
+                    
+                }))
+                self.present(alert, animated: true, completion: nil)
+                
+            }
+            
+            // ...
+        } else {
+            print("\(error.localizedDescription)")
+        }
+    }
+       
+    
+    
+    // Finished disconnecting |user| from the app successfully if |error| is |nil|.
+    func signIn(signIn: GIDSignIn!, didDisconnectWithUser user: GIDGoogleUser!, withError error: NSError!){
+        
+    }
+    
+    //end of gogle sign in
     
     func loadFeatures(){
         for(index,feature) in featureArray.enumerated(){
@@ -91,7 +139,7 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate, GIDSignInUIDel
                 
                 if (error == nil){
                     self.dict = result as! [String : AnyObject]
-                   // print(result!)
+                   
                     print(self.dict)
                  /*   for (key, value) in self.dict {
                         print("\(key) -> \(value)")
@@ -99,16 +147,25 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate, GIDSignInUIDel
                      print((self.dict["picture"]!["data"]!! as! [String : AnyObject])["url"]!)*/
                     
                     self.avatarUrl = (self.dict["picture"]!["data"]!! as! [String : AnyObject])["url"]! as? String
-//                    print(self.avatarUrl)
+
                     self.prefs.set(self.avatarUrl, forKey: "avatar")
-                    self.prefs.set(self.dict["email"], forKey: "email")
+                    self.prefs.set(self.dict["email"], forKey: "socialEmail")
                     self.name = self.dict["first_name"]! as? String
                     
-                    var loginStatus:Int = self.parseJSON()
+                    let loginStatus:Int = self.parseJSON()
                     if loginStatus==1{
-                self.presentHome()
+                        self.presentHome()
+                        print("Successfully logged in")
+                    }else{
+                        let alert = UIAlertController(title: "Oops!", message: "Error logging in", preferredStyle: .actionSheet)
+                        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action) in
+                            
+                        }))
+                        self.present(alert, animated: true, completion: nil)
+                        
                     }
-                    print("Successfully logged in")
+
+                    
                 }
             
         
@@ -122,14 +179,17 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate, GIDSignInUIDel
     //end of methods for facebook login
     
     func parseJSON() -> Int{
+        
+        let socialEmail:String! = self.prefs.value(forKey: "socialEmail") as! String!
+        
         var status:Int = 0
-        let urlpath = "http://35.154.46.78:1337/user/social?email=pjp288@gmail.com&name=Pavan&avatarUrl=\(avatarUrl)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
+        let urlpath = "http://35.154.46.78:1337/user/social?email=\(socialEmail!)&name=\(name!)&avatarUrl=\(avatarUrl)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
         let url = URL(string: urlpath!)
         
         if let jsonData = try? Data(contentsOf: url! as URL, options: []){
             let readableJSON = JSON(data: jsonData as Data, options: JSONSerialization.ReadingOptions.mutableContainers, error: nil)
             
-            let message = readableJSON["message"].string! as String
+            _ = readableJSON["message"].string! as String
              status = readableJSON["status"].int! as Int
             
             let email = readableJSON["user"]["email"].string! as String

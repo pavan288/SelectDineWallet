@@ -26,6 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         var configureError: NSError?
         GGLContext.sharedInstance().configureWithError(&configureError)
         assert(configureError == nil, "Error configuring Google services: \(configureError)")
+
     
         
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
@@ -36,6 +37,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
     
+    
     func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
         let FBDidHandle = FBSDKApplicationDelegate.sharedInstance().application( app, open: url, sourceApplication: options[UIApplicationOpenURLOptionsKey.sourceApplication] as! String!, annotation: options[UIApplicationOpenURLOptionsKey.annotation])
         
@@ -43,30 +45,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         return FBDidHandle || GoogleDidHandle
     }
-    
-    func signIn(signIn: GIDSignIn!, didSignInForUser user: GIDGoogleUser!,
-                withError error: NSError!) {
-        if (error == nil) {
-          let email = user.profile.email
-            let name = user.profile.name
-            
-            let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-            let appDelegate = UIApplication.shared.delegate! as! AppDelegate
-            let initialViewController = storyboard.instantiateViewController(withIdentifier: "Home") as! ViewController
-            appDelegate.window?.rootViewController = initialViewController
-//            appDelegate.window?.makeKeyAndVisible()
-            
-        } else {
-            print("\(error.localizedDescription)")
-        }
-    }
-    
-    func signIn(signIn: GIDSignIn!, didDisconnectWithUser user:GIDGoogleUser!,
-                withError error: NSError!) {
-        // Perform any operations when the user disconnects from app here.
-        // ...
-    }
-    
+
    
 
     func applicationWillResignActive(_ application: UIApplication) {

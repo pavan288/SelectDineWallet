@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import FBSDKLoginKit
+import GoogleSignIn
 
 class ProfileTabViewController: UIViewController{
     
@@ -31,6 +33,12 @@ class ProfileTabViewController: UIViewController{
     
     @IBAction func logoutPressed(_ sender: Any) {
         prefs.removePersistentDomain(forName: Bundle.main.bundleIdentifier!)
+        
+        let loginManager = FBSDKLoginManager()
+        loginManager.logOut()
+        
+        let googleLoginManager = GIDSignIn()
+        googleLoginManager.signOut()
         
         let vc:UIViewController? = self.storyboard?.instantiateViewController(withIdentifier: "ViewController")
         self.present(vc!, animated: true, completion: nil)
