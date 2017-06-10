@@ -24,6 +24,9 @@
 		2750CBD71E9E1E4F00261269 /* CitiyTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2750CBD61E9E1E4F00261269 /* CitiyTableView.swift */; };
 		2750CBD91E9E236F00261269 /* BranchTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2750CBD81E9E236F00261269 /* BranchTableView.swift */; };
 		275A14611EB600370034F19F /* FeedbackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275A14601EB600370034F19F /* FeedbackViewController.swift */; };
+		27BC0A3C1EE2F8200096D0C1 /* PayUmoney_SDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27BC0A3B1EE2F8200096D0C1 /* PayUmoney_SDK.framework */; };
+		27BC0A3E1EE2F8310096D0C1 /* PayUmoney_SDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 27BC0A3B1EE2F8200096D0C1 /* PayUmoney_SDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		27BC0A431EE2F8A90096D0C1 /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 27BC0A421EE2F8A90096D0C1 /* Utils.m */; };
 		27C1BA431EB70CDE002073B3 /* TransactionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C1BA421EB70CDD002073B3 /* TransactionTableViewCell.swift */; };
 		27C1BA451EB715CA002073B3 /* transactionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C1BA441EB715CA002073B3 /* transactionModel.swift */; };
 		27D0F6C21E84E1AC00DEFB50 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D0F6C11E84E1AC00DEFB50 /* AppDelegate.swift */; };
@@ -48,6 +51,20 @@
 		760798B8D85276A1D2023C92 /* Pods_SelectDineWallet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B881DA72BDAD01D497719741 /* Pods_SelectDineWallet.framework */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		27BC0A3F1EE2F8310096D0C1 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				27BC0A3E1EE2F8310096D0C1 /* PayUmoney_SDK.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		270F1E0D1EB4573300351D4D /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		271686CD1EBC39D500D6963A /* TransactionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionViewController.swift; sourceTree = "<group>"; };
@@ -67,6 +84,10 @@
 		2750CBD61E9E1E4F00261269 /* CitiyTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CitiyTableView.swift; sourceTree = "<group>"; };
 		2750CBD81E9E236F00261269 /* BranchTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BranchTableView.swift; sourceTree = "<group>"; };
 		275A14601EB600370034F19F /* FeedbackViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackViewController.swift; sourceTree = "<group>"; };
+		27BC0A3B1EE2F8200096D0C1 /* PayUmoney_SDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = PayUmoney_SDK.framework; sourceTree = "<group>"; };
+		27BC0A401EE2F8A80096D0C1 /* SelectDineWallet-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SelectDineWallet-Bridging-Header.h"; sourceTree = "<group>"; };
+		27BC0A411EE2F8A90096D0C1 /* Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utils.h; sourceTree = "<group>"; };
+		27BC0A421EE2F8A90096D0C1 /* Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utils.m; sourceTree = "<group>"; };
 		27C1BA421EB70CDD002073B3 /* TransactionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionTableViewCell.swift; sourceTree = "<group>"; };
 		27C1BA441EB715CA002073B3 /* transactionModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = transactionModel.swift; sourceTree = "<group>"; };
 		27D0F6BE1E84E1AC00DEFB50 /* SelectDineWallet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SelectDineWallet.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -103,6 +124,7 @@
 				27D0F6E01E8548EA00DEFB50 /* FBSDKShareKit.framework in Frameworks */,
 				27D0F6DD1E8548E900DEFB50 /* Bolts.framework in Frameworks */,
 				27D0F6DE1E8548EA00DEFB50 /* FBSDKCoreKit.framework in Frameworks */,
+				27BC0A3C1EE2F8200096D0C1 /* PayUmoney_SDK.framework in Frameworks */,
 				27D0F6DF1E8548EA00DEFB50 /* FBSDKLoginKit.framework in Frameworks */,
 				760798B8D85276A1D2023C92 /* Pods_SelectDineWallet.framework in Frameworks */,
 			);
@@ -111,6 +133,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2705FF9D1EE28DF600FBB358 /* PayU */ = {
+			isa = PBXGroup;
+			children = (
+				27BC0A411EE2F8A90096D0C1 /* Utils.h */,
+				27BC0A421EE2F8A90096D0C1 /* Utils.m */,
+				27BC0A3B1EE2F8200096D0C1 /* PayUmoney_SDK.framework */,
+				27BC0A401EE2F8A80096D0C1 /* SelectDineWallet-Bridging-Header.h */,
+			);
+			name = PayU;
+			sourceTree = "<group>";
+		};
 		270F1E0C1EB456E500351D4D /* Settings */ = {
 			isa = PBXGroup;
 			children = (
@@ -229,6 +262,7 @@
 		27D0F6C01E84E1AC00DEFB50 /* SelectDineWallet */ = {
 			isa = PBXGroup;
 			children = (
+				2705FF9D1EE28DF600FBB358 /* PayU */,
 				2750CBCF1E9CAAB500261269 /* Models */,
 				274EF4BD1E9372EB0015FED2 /* PayViewController.swift */,
 				27D0F6F31E8E355E00DEFB50 /* Tabbed SCreens */,
@@ -294,6 +328,7 @@
 				27D0F6BC1E84E1AB00DEFB50 /* Resources */,
 				CE2B8AB6F2B090CBEDA30706 /* [CP] Embed Pods Frameworks */,
 				B49474DD7C324F5DFF29168A /* [CP] Copy Pods Resources */,
+				27BC0A3F1EE2F8310096D0C1 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -317,6 +352,7 @@
 					27D0F6BD1E84E1AB00DEFB50 = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = P57823DZ5M;
+						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -422,6 +458,7 @@
 				27D0F6F21E8E330C00DEFB50 /* HomeScrollView.swift in Sources */,
 				275A14611EB600370034F19F /* FeedbackViewController.swift in Sources */,
 				27C1BA431EB70CDE002073B3 /* TransactionTableViewCell.swift in Sources */,
+				27BC0A431EE2F8A90096D0C1 /* Utils.m in Sources */,
 				274EF4BE1E9372EB0015FED2 /* PayViewController.swift in Sources */,
 				27D0F6E81E8788C700DEFB50 /* SignUpViewController.swift in Sources */,
 				271686D01EBC3F9100D6963A /* PassbookViewController.swift in Sources */,
@@ -561,16 +598,20 @@
 			baseConfigurationReference = 6F1F5244618DEBD0C8E71F10 /* Pods-SelectDineWallet.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = P57823DZ5M;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/SelectDineWallet",
 				);
 				INFOPLIST_FILE = SelectDineWallet/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.SelectDineWallet.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "SelectDineWallet/SelectDineWallet-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_REFLECTION_METADATA_LEVEL = all;
 				SWIFT_VERSION = 3.0;
 			};
@@ -581,16 +622,19 @@
 			baseConfigurationReference = 75B92D4249E65320A6D5C6B1 /* Pods-SelectDineWallet.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = P57823DZ5M;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/SelectDineWallet",
 				);
 				INFOPLIST_FILE = SelectDineWallet/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.SelectDineWallet.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "SelectDineWallet/SelectDineWallet-Bridging-Header.h";
 				SWIFT_REFLECTION_METADATA_LEVEL = all;
 				SWIFT_VERSION = 3.0;
 			};

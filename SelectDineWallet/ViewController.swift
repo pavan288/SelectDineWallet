@@ -58,13 +58,16 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate, GIDSignInUIDel
             let familyName = user.profile.familyName
             let email = user.profile.email
             if user.profile.hasImage{
-                self.avatarUrl = String(describing: user.profile.imageURL(withDimension: 200))
+                let imageUrl = user.profile.imageURL(withDimension: 200)
+                print(" image url: ", imageUrl?.absoluteString)
+                self.avatarUrl = imageUrl?.absoluteString
             }
              print("Welcome: ,\(userId!), \(fullName!), \(avatarUrl!), \(email!)")
+//            print(user.profile.imageURL)
             
-            self.prefs.set(self.avatarUrl, forKey: "avatar")
+            self.prefs.set(self.avatarUrl!, forKey: "avatar")
             self.prefs.set(email, forKey: "socialEmail")
-            self.name = name! as? String
+            self.name = fullName! as? String
             
             let loginStatus:Int = self.parseJSON()
             if loginStatus==1{
@@ -146,7 +149,7 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate, GIDSignInUIDel
                     }
                      print((self.dict["picture"]!["data"]!! as! [String : AnyObject])["url"]!)*/
                     
-                    self.avatarUrl = (self.dict["picture"]!["data"]!! as! [String : AnyObject])["url"]! as? String
+                    self.avatarUrl = ((self.dict["picture"]!["data"]!! as! [String : AnyObject])["url"]! as? String)!
 
                     self.prefs.set(self.avatarUrl, forKey: "avatar")
                     self.prefs.set(self.dict["email"], forKey: "socialEmail")
@@ -179,11 +182,11 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate, GIDSignInUIDel
     //end of methods for facebook login
     
     func parseJSON() -> Int{
-        
         let socialEmail:String! = self.prefs.value(forKey: "socialEmail") as! String!
         
         var status:Int = 0
-        let urlpath = "http://35.154.46.78:1337/user/social?email=\(socialEmail!)&name=\(name!)&avatarUrl=\(avatarUrl)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
+        
+        let urlpath = "http://35.154.46.78:1337/user/social?email=\(socialEmail!)&name=\(name!)&avatarUrl=\(avatarUrl!))".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
         let url = URL(string: urlpath!)
         
         if let jsonData = try? Data(contentsOf: url! as URL, options: []){
@@ -193,16 +196,31 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate, GIDSignInUIDel
              status = readableJSON["status"].int! as Int
             
             let email = readableJSON["user"]["email"].string! as String
-            let phone = readableJSON["user"]["mobileNo"].int! as Int
+//            let phone = readableJSON["user"]["mobileNo"].int! as Int
             let userID = readableJSON["user"]["id"].string! as String
             let name = readableJSON["user"]["name"].string! as String
             
             if (status == 1){
-                self.prefs.set(name, forKey: "name")
-                self.prefs.set(email, forKey: "email")
-                self.prefs.set(phone, forKey: "phone")
-                self.prefs.set(userID, forKey: "userID")
+                
+                let alert = UIAlertController(title: "Important!", message: "Please enter your phone number", preferredStyle: .alert)
+                alert.addTextField(configurationHandler: { (textfield) in
+                    textfield.placeholder = "Phone number"
+                })
+                alert.addAction(UIAlertAction(title: "Save", style: .default, handler: { (action) in
+                    let textField = alert.textFields![0] as UITextField
+                    let number = Int(textField.text!)
+                    self.prefs.set(number, forKey: "phone")
+                    
+                }))
+                
+                self.present(alert, animated: true, completion: { 
+                    self.prefs.set(name, forKey: "name")
+                    self.prefs.set(email, forKey: "email")
+                    self.prefs.set(userID, forKey: "userID")
 
+                })
+                
+                
             }else{
                let alert = UIAlertController(title: "Oops!", message: "Error logging in", preferredStyle: .actionSheet)
                 alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action) in

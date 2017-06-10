@@ -20,13 +20,14 @@ class PayViewController: UIViewController {
     let baseUrl = "http://35.154.46.78:1337"
     
     override func viewDidLoad() {
-        
         super.viewDidLoad()
         if phoneFlag == 0{
             return
         }else{
+            if (defaultNumber != nil){
             phNumber.text = String(defaultNumber!)
             phNumber.isUserInteractionEnabled = false
+            }
         }
         
         // Do any additional setup after loading the view.
@@ -90,6 +91,12 @@ class PayViewController: UIViewController {
                 })
                 self.present(alert, animated: true)
             }
+            }else{
+                let alert = UIAlertController(title: "Oops!", message: "Please check your connection!", preferredStyle: .actionSheet)
+                alert.addAction(UIAlertAction(title: "Ok", style: .default) { action in
+                    // perhaps use action.title here
+                })
+                self.present(alert, animated: true)
             }
             
         }else{
@@ -107,8 +114,8 @@ class PayViewController: UIViewController {
             let urlpath = "\(baseUrl)/payment/ifPayWithReceiversMobileNo?mobileNo=\(Int(number)!)&accessToken=accessToken".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
             let url = URL(string: urlpath!)
             
-            let jsonData = try? Data(contentsOf: url! as URL, options: [])
-            let readableJSON = JSON(data: jsonData! as Data, options: JSONSerialization.ReadingOptions.mutableContainers, error: nil)
+            if let jsonData = try? Data(contentsOf: url! as URL, options: []){
+            let readableJSON = JSON(data: jsonData as Data, options: JSONSerialization.ReadingOptions.mutableContainers, error: nil)
             
             let status = readableJSON["status"].int! as Int
             let userid = readableJSON["userId"].string! as String
@@ -117,8 +124,8 @@ class PayViewController: UIViewController {
                 let urlpath = "\(baseUrl)/payment/paymentReceiveBegin?receiverId=\(userid)&accessToken=accessToken".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
                 let url = URL(string: urlpath!)
                 
-                let jsonData = try? Data(contentsOf: url! as URL, options: [])
-                let readableJSON = JSON(data: jsonData! as Data, options: JSONSerialization.ReadingOptions.mutableContainers, error: nil)
+                if let jsonData = try? Data(contentsOf: url! as URL, options: []){
+                let readableJSON = JSON(data: jsonData as Data, options: JSONSerialization.ReadingOptions.mutableContainers, error: nil)
                 
                 let status = readableJSON["status"].int! as Int
                 let message = readableJSON["message"].string! as String
@@ -162,7 +169,7 @@ class PayViewController: UIViewController {
                     self.present(alert, animated: true)
                 }
                 
-                
+                }
             }else{
                 let alert = UIAlertController(title: "Error", message: "User not found", preferredStyle: .actionSheet)
                 alert.addAction(UIAlertAction(title: "Ok", style: .default) { action in
@@ -170,6 +177,13 @@ class PayViewController: UIViewController {
                 })
                 self.present(alert, animated: true)
 
+            }
+            }else{
+                let alert = UIAlertController(title: "Oops!", message: "Please check your connection!", preferredStyle: .actionSheet)
+                alert.addAction(UIAlertAction(title: "Ok", style: .default) { action in
+                    // perhaps use action.title here
+                })
+                self.present(alert, animated: true)
             }
         }else{
             let alert = UIAlertController(title: "Login", message: "Please enter an amount", preferredStyle: .actionSheet)
@@ -179,6 +193,7 @@ class PayViewController: UIViewController {
             self.present(alert, animated: true)
         }
     }
+    
    
     func payUser(){
         if let number = phNumber.text , let amt = amount.text {
@@ -186,8 +201,8 @@ class PayViewController: UIViewController {
             if (number != "") && (amt != ""){
              let urlpath = "\(baseUrl)/payment/ifPayWithReceiversMobileNo?mobileNo=\(number)&accessToken=accessToken".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
             let url = URL(string: urlpath!)
-            let jsonData = try? Data(contentsOf: url! as URL, options: [])
-            let readableJSON = JSON(data: jsonData! as Data, options: JSONSerialization.ReadingOptions.mutableContainers, error: nil)
+              if let jsonData = try? Data(contentsOf: url! as URL, options: []){
+            let readableJSON = JSON(data: jsonData as Data, options: JSONSerialization.ReadingOptions.mutableContainers, error: nil)
             let status = readableJSON["status"].int! as Int
             let userid = readableJSON["userId"].string! as String
             
@@ -241,6 +256,13 @@ class PayViewController: UIViewController {
                 })
                 self.present(alert, animated: true)
             }
+              }else{
+                let alert = UIAlertController(title: "Oops!", message: "Please check your connection!", preferredStyle: .actionSheet)
+                alert.addAction(UIAlertAction(title: "Ok", style: .default) { action in
+                    // perhaps use action.title here
+                })
+                self.present(alert, animated: true)
+                }
         }else{
             let alert = UIAlertController(title: "Error!", message: "Please enter all the fields", preferredStyle: .actionSheet)
             alert.addAction(UIAlertAction(title: "Ok", style: .default) { action in

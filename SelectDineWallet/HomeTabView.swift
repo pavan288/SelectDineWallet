@@ -52,17 +52,21 @@ class HomeTabView: UIViewController,UIScrollViewDelegate {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "HomeBank" {
             let destinationVC = segue.destination as! PayViewController
-            let phoneNumber = prefs.value(forKey: "phone")
+            if let phoneNumber = prefs.value(forKey: "phone"){
             destinationVC.defaultNumber = phoneNumber as! Int
-            destinationVC.phoneFlag = 1
+                destinationVC.phoneFlag = 1
+            }else{
+                print("update phone number before transaction")
+            }
             
         }else if segue.identifier == "HomeCredits"{
             let destinationVC = segue.destination as! PayViewController
-            let phoneNumber = prefs.value(forKey: "phone")
-            destinationVC.defaultNumber = phoneNumber as! Int!
+            if let phoneNumber = prefs.value(forKey: "phone"){
+            destinationVC.defaultNumber = phoneNumber as! Int
             destinationVC.phoneFlag = 2
-            
+            }else{
+                print("update phone number before transaction")
+            }
         }
     }
-
 }
