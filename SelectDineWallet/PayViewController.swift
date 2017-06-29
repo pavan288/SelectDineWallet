@@ -19,6 +19,9 @@ class PayViewController: UIViewController {
     let prefs = UserDefaults.standard
     let baseUrl = "http://35.154.46.78:1337"
     
+    var params : PUMRequestParams = PUMRequestParams.shared()
+    var utils : Utils = Utils()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         if phoneFlag == 0{
@@ -52,6 +55,124 @@ class PayViewController: UIViewController {
             addCredits()
         }
     }
+    
+    func showAlertViewWithTitle(title : String,message:String) -> Void {
+        let alertController : UIAlertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
+        let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default) {
+            UIAlertAction in
+            NSLog("OK Pressed")
+        }
+        alertController.addAction(okAction)
+        self.present(alertController, animated: true, completion: nil)
+    }
+    
+    func startPayment() -> Void {
+        if((amount.text) != nil){
+            if (Double(amount.text!)! > 1000000.00) {
+                showAlertViewWithTitle(title: "Amount Exceeding the limit", message: "1000000")
+                return
+            }
+            params.amount = amount.text;
+        }
+        //PUMEnvironment.test for test environment and PUMEnvironment.production for live environment.
+        params.environment = PUMEnvironment.test;
+        params.firstname = "";
+        params.key = "kgJ4kDdQ";
+        params.merchantid = "4945381";  //Merchant merchantid
+        params.logo_url = ""; //Merchant logo_url
+        params.productinfo = "Product Info";
+        params.email = "";  //user email
+        params.phone = ""; //user phone
+        params.txnid = utils.getRandomString(2);  //set your correct transaction id here
+        params.surl = "https://www.payumoney.com/mobileapp/payumoney/success.php";
+        params.furl = "https://www.payumoney.com/mobileapp/payumoney/failure.php";
+        
+        //Below parameters are optional. It is to store any information you would like to save in PayU Database regarding trasnsaction. If you do not intend to store any additional info, set below params as empty strings.
+        
+        params.udf1 = "";
+        params.udf2 = "";
+        params.udf3 = "";
+        params.udf4 = "";
+        params.udf5 = "";
+        params.udf6 = "";
+        params.udf7 = "";
+        params.udf8 = "";
+        params.udf9 = "";
+        params.udf10 = "";
+        //We strictly recommend that you calculate hash on your server end. Just so that you can quickly see demo app working, we are providing a means to do it here. Once again, this should be avoided.
+        if(params.environment == PUMEnvironment.production){
+            calculateHashFromServer()
+        }
+        else{
+            calculateHashFromServer()
+        }
+        // assign delegate for payment callback.
+        params.delegate = self;
+    }
+    
+    func startPaymentFlow() -> Void {
+        let paymentVC : PUMMainVController = PUMMainVController()
+        var paymentNavController : UINavigationController;
+        paymentNavController = UINavigationController(rootViewController: paymentVC);
+        self.present(paymentNavController, animated: true, completion: nil)
+    }
+    
+    func transactionCompleted(withResponse response : NSDictionary,errorDescription error:NSError) -> Void {
+        self.dismiss(animated: true){
+            self.showAlertViewWithTitle(title: "Message", message: "congrats! Payment is Successful")
+        }
+    }
+    
+    
+    func transactinFailed(withResponse response : NSDictionary,errorDescription error:NSError) -> Void {
+        self.dismiss(animated: true){
+            self.showAlertViewWithTitle(title: "Message", message: "Oops!!! Payment Failed")
+        }
+    }
+    
+    func prepareHashBody()->NSString{
+        return "key=\(params.key!)&amount=\(params.amount!)&txnid=\(params.txnid!)&productinfo=\(params.productinfo!)&email=\(params.email!)&firstname=\(params.firstname!)" as NSString;
+    }
+    
+    func calculateHashFromServer(){
+        let config = URLSessionConfiguration.default // Session Configuration
+        let session = URLSession(configuration: config) // Load configuration into Session
+        let url = URL(string: "https://test.payumoney.com/payment/op/v1/calculateHashForTest")!
+        var request = URLRequest(url: url)
+        request.httpBody = prepareHashBody().data(using: String.Encoding.utf8.rawValue)
+        request.httpMethod = "POST"
+        
+        let task = session.dataTask(with: request, completionHandler: {
+            (data, response, error) in
+            if error != nil {
+                print(error!.localizedDescription)
+            } else {
+                do {
+                    if let json = try JSONSerialization.jsonObject(with: data!, options: []) as? [String: Any]{
+                        //Implement your logic
+                        print(json)
+                        let status : NSNumber = json["status"] as! NSNumber
+                        if(status.intValue == 0)
+                        {
+                            self.params.hashValue = json["result"] as! String!
+                            OperationQueue.main.addOperation {
+                                self.startPaymentFlow()
+                            }
+                        }
+                        else{
+                            OperationQueue.main.addOperation {
+                                self.showAlertViewWithTitle(title: "Message", message: json["message"] as! String)
+                            }
+                        }
+                    }
+                } catch {
+                    print("error in JSONSerialization")
+                }
+            }
+        })
+        task.resume()
+    }
+
     
     
     func addCredits(){

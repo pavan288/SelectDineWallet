@@ -346,7 +346,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0820;
-				LastUpgradeCheck = 0820;
+				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = "Pavan Powani";
 				TargetAttributes = {
 					27D0F6BD1E84E1AB00DEFB50 = {
@@ -597,6 +597,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 6F1F5244618DEBD0C8E71F10 /* Pods-SelectDineWallet.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = P57823DZ5M;
@@ -621,6 +622,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 75B92D4249E65320A6D5C6B1 /* Pods-SelectDineWallet.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = P57823DZ5M;

@@ -34,7 +34,7 @@ class FeedbackViewController: UIViewController {
     
     @IBAction func sendPressed(_ sender: Any) {
         let uid = prefs.value(forKey: "userID")
-        let urlpath = "\(baseUrl)/feedback/createFeedback?id=\(uid)&feedback=\(feedbackText.text!)&accessToken=accessToken".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
+        let urlpath = "\(baseUrl)/feedback/createFeedback?id=\(String(describing: uid))&feedback=\(feedbackText.text!)&accessToken=accessToken".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
         let url = URL(string: urlpath!)
         
         if let jsonData = try? Data(contentsOf: url! as URL, options: []){
